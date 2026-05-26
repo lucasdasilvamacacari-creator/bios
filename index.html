@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão de Lucas M</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#D7CCC8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: {
+                            50: '#FDFBF7',
+                            100: '#F5F5F0',
+                            200: '#EAE6DF',
+                            300: '#D7CCC8',
+                            400: '#BCAAA4',
+                            800: '#4E342E',
+                            900: '#3E2723',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos para ocultar as abas inativas suavemente */
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Estilização do acordeão (detalhes) */
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: slideDown 0.3s ease-in-out; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-beige-100 text-beige-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-beige-300 text-beige-900 shadow-sm sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-4 py-5 flex items-center justify-center">
+            <h1 class="text-2xl font-bold tracking-wide">Revisão de Lucas M</h1>
+        </div>
+        <div class="flex justify-center border-t border-beige-400/30 overflow-x-auto">
+            <button onclick="openTab('bioA')" class="tab-btn px-6 py-3 font-semibold text-sm transition-colors border-b-2 border-beige-800 text-beige-900" id="btn-bioA">Biologia A</button>
+            <button onclick="openTab('bioB')" class="tab-btn px-6 py-3 font-semibold text-sm transition-colors border-b-2 border-transparent text-beige-800/70 hover:text-beige-900" id="btn-bioB">Biologia B</button>
+            <button onclick="openTab('bioIti')" class="tab-btn px-6 py-3 font-semibold text-sm transition-colors border-b-2 border-transparent text-beige-800/70 hover:text-beige-900 whitespace-nowrap" id="btn-bioIti">Itinerário</button>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto w-full px-4 py-8 space-y-6">
+
+        <section id="bioA" class="tab-content active">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-beige-900 mb-2">BIOLOGIA A</h2>
+                <p class="text-beige-800 font-medium">Taxonomia, Classificação dos Seres Vivos e Reino Monera</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        1. TAXONOMIA
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 leading-relaxed">
+                        <p class="mb-4">→ Ciência que classifica os seres vivos.</p>
+                        <h3 class="font-bold text-beige-900 mb-2">Objetivos</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Organizar os seres vivos</li>
+                            <li>Facilitar os estudos</li>
+                            <li>Estabelecer relações entre os organismos</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        2. CLASSIFICAÇÃO DOS SERES VIVOS
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 overflow-x-auto">
+                        <h3 class="font-bold text-beige-900 mb-3">5 REINOS</h3>
+                        <table class="w-full min-w-[500px] text-sm text-left">
+                            <thead class="bg-beige-100 text-beige-900">
+                                <tr>
+                                    <th class="px-3 py-2 rounded-tl-lg">Reino</th>
+                                    <th class="px-3 py-2">Tipo celular</th>
+                                    <th class="px-3 py-2">Nº de células</th>
+                                    <th class="px-3 py-2">Nutrição</th>
+                                    <th class="px-3 py-2 rounded-tr-lg">Parede celular</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-beige-200">
+                                <tr><td class="px-3 py-2 font-medium">Monera</td><td class="px-3 py-2">Procarionte</td><td class="px-3 py-2">Unicelular</td><td class="px-3 py-2">Heterótrofa / Autótrofa</td><td class="px-3 py-2">Peptidoglicano</td></tr>
+                                <tr><td class="px-3 py-2 font-medium">Fungi</td><td class="px-3 py-2">Eucarionte</td><td class="px-3 py-2">Uni ou Pluri</td><td class="px-3 py-2">Heterótrofa</td><td class="px-3 py-2">Quitina</td></tr>
+                                <tr><td class="px-3 py-2 font-medium">Protista</td><td class="px-3 py-2">Eucarionte</td><td class="px-3 py-2">Uni ou Pluri</td><td class="px-3 py-2">Heterótrofa</td><td class="px-3 py-2">Alguns possuem</td></tr>
+                                <tr><td class="px-3 py-2 font-medium">Vegetal</td><td class="px-3 py-2">Eucarionte</td><td class="px-3 py-2">Pluricelular</td><td class="px-3 py-2">Autótrofa</td><td class="px-3 py-2">Celulose</td></tr>
+                                <tr><td class="px-3 py-2 font-medium">Animal</td><td class="px-3 py-2">Eucarionte</td><td class="px-3 py-2">Pluricelular</td><td class="px-3 py-2">Heterótrofa</td><td class="px-3 py-2">Não possui</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        3. LINEU & 4. SISTEMA BINOMIAL
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">3. LINEU</h3>
+                            <p class="mb-3">→ Criador do “Sistema Binomial”.</p>
+                            <h4 class="font-bold text-beige-900 mb-1">Hierarquia Taxonômica</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Reino</li><li>Filo</li><li>Classe</li><li>Ordem</li><li>Família</li><li>Gênero</li><li>Espécie</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">4. SISTEMA BINOMIAL</h3>
+                            <h4 class="font-bold text-beige-900 mt-3">Nome científico</h4>
+                            <p class="mb-2">Formado por: Gênero e Espécie.</p>
+                            <h4 class="font-bold text-beige-900 mt-3">Regras</h4>
+                            <ul class="list-disc pl-5 space-y-1 mb-3">
+                                <li>Nome científico em latim</li>
+                                <li>Gênero com inicial maiúscula</li>
+                                <li>Espécie com inicial minúscula</li>
+                                <li>Deve ser escrito em itálico ou sublinhado</li>
+                            </ul>
+                            <p><strong>Exemplo:</strong> <em>Homo sapiens</em></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        5. CONCEITOS E 6. EVOLUÇÃO
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">5. CONCEITOS IMPORTANTES</h3>
+                            <p><strong>Espécie:</strong> → Indivíduos semelhantes que conseguem cruzar entre si e gerar descendentes férteis.</p>
+                            <p class="mt-2"><strong>Gênero:</strong> → Reúne espécies parecidas.</p>
+                            <p class="mt-2"><strong>Família:</strong> → Reúne gêneros semelhantes.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">6. EVOLUÇÃO E CLASSIFICAÇÃO</h3>
+                            <p><strong>Cladograma:</strong> → Representa o grau de parentesco entre os organismos.</p>
+                            <ul class="list-none mt-2 space-y-1">
+                                <li><strong>Quanto mais próximo:</strong> → maior o parentesco.</li>
+                                <li><strong>Quanto mais distante:</strong> → menor o parentesco.</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">7. GRUPOS</h3>
+                            <p><strong>Grupo Monofilético:</strong> → Grupo de seres vivos que compartilham um ancestral comum.</p>
+                            <p class="mt-2"><strong>Grupo Parafilético:</strong> → Grupo de seres vivos que não inclui todos os descendentes do ancestral.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        8. REINO MONERA E BACTÉRIAS
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">8. REINO MONERA</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Procariontes e Unicelulares</li>
+                                <li>Heterótrofos / Autótrofos</li>
+                                <li>Bactérias, cianobactérias e decompositores</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h3 class="font-bold text-beige-900 mb-2">9. ESTRUTURA</h3>
+                                <ul class="list-disc pl-5 space-y-1 text-sm">
+                                    <li>Membrana plasmática</li><li>Parede celular</li><li>Citoplasma</li>
+                                    <li>Ribossomos</li><li>Material genético</li><li>Flagelo</li>
+                                    <li>Pili</li><li>Plasmídeos</li><li>Cápsula</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-beige-900 mb-2">10. MORFOLOGIA & 11. ARRANJOS</h3>
+                                <p class="text-sm font-bold mb-1">Formatos:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-sm mb-3">
+                                    <li>Cocos, Bacilos, Espiroquetas, Vibrião, Espirilo</li>
+                                </ul>
+                                <p class="text-sm font-bold mb-1">Arranjos:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-sm">
+                                    <li>Diplococos, Estreptococos, Estafilococos, Diplobacilos, Estreptobacilos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">REPRODUÇÃO E NUTRIÇÃO (12 a 15)</h3>
+                            <p><strong>12. Assexuada (Cissiparidade/Bipartição):</strong> → Uma bactéria origina duas.</p>
+                            <p class="mt-2"><strong>13. Esporulação:</strong> → Resistência à falta de alimento, pH e temperatura.</p>
+                            <p class="mt-3 font-bold">14. Reprod. Sexuada:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm mb-3">
+                                <li><strong>Conjugação:</strong> Troca de DNA por meio do pili.</li>
+                                <li><strong>Transformação:</strong> Absorve fragmentos de DNA do ambiente.</li>
+                                <li><strong>Transdução:</strong> Transferência de DNA por vírus.</li>
+                            </ul>
+                            <p class="mt-3 font-bold">15. Nutrição:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li><strong>Aeróbias estritas:</strong> Precisam de oxigênio.</li>
+                                <li><strong>Aeróbias facultativas:</strong> Vivem com ou sem oxigênio.</li>
+                                <li><strong>Anaeróbias estritas:</strong> Não sobrevivem na presença de oxigênio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="mt-12 bg-beige-200 p-6 rounded-2xl border border-beige-300 shadow-sm" id="quiz-bioA-container">
+                <h3 class="text-xl font-bold text-beige-900 flex items-center mb-4"><span class="mr-2">🎯</span> Treino Rápido</h3>
+                <p class="mb-4 font-medium">De acordo com a taxonomia, qual alternativa representa as regras corretas do Sistema Binomial de Lineu?</p>
+                <div class="space-y-2" id="quiz-bioA-options">
+                    <button onclick="checkAnswer('bioA', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">A) Nomes em grego, família em maiúsculo.</button>
+                    <button onclick="checkAnswer('bioA', this, true)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">B) Nomes em latim, gênero com inicial maiúscula e espécie minúscula, em itálico.</button>
+                    <button onclick="checkAnswer('bioA', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">C) Apenas o gênero é escrito em itálico e ambos começam com minúscula.</button>
+                    <button onclick="checkAnswer('bioA', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">D) Nome do filo e da espécie juntos, sublinhados.</button>
+                </div>
+                <p id="quiz-bioA-feedback" class="mt-4 font-bold text-center hidden"></p>
+            </div>
+        </section>
+
+        <section id="bioB" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-beige-900 mb-2">BIOLOGIA B</h2>
+                <p class="text-beige-800 font-medium">Proteínas, Enzimas, Imunização, Soro e Vacina</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        1. PROTEÍNAS E AMINOÁCIDOS
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">1. PROTEÍNAS</h3>
+                            <p><strong>Conceito:</strong> → Macromoléculas orgânicas formadas por aminoácidos.</p>
+                            <p class="mt-2 font-bold">Funções:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Estrutural</li><li>Hormonal</li><li>Defesa</li><li>Transporte</li><li>Catalisadora (enzimas)</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">2. AMINOÁCIDOS</h3>
+                            <p class="font-bold mb-1">Estrutura básica:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm mb-2">
+                                <li>Carbono central</li><li>Hidrogênio</li><li>Grupo amina (NH₂)</li><li>Grupo carboxila (COOH)</li><li>Radical (R)</li>
+                            </ul>
+                            <p><strong>Radical:</strong> → Parte que diferencia os aminoácidos.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 mb-2">3. LIGAÇÃO PEPTÍDICA & 4. TIPOS</h3>
+                            <p><strong>Ligação Peptídica:</strong> → Ligação entre aminoácidos (entre grupo amina e carboxila). Ocorre liberação de água.</p>
+                            <p class="mt-3 font-bold">4. Tipos de Aminoácidos:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li><strong>Naturais:</strong> Produzidos pelo organismo.</li>
+                                <li><strong>Essenciais:</strong> Precisam ser obtidos pela alimentação.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        5. TIPOS DE PROTEÍNAS E ENZIMAS
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">5. TIPOS E 6. DESNATURAÇÃO</h3>
+                            <p><strong>Fibrosas (Estruturais):</strong> Queratina, Colágeno.</p>
+                            <p><strong>Globulares (Metabólicas):</strong> Enzimas, Hemoglobina, Mioglobina, Anticorpos.</p>
+                            <p class="mt-3"><strong>6. Desnaturação:</strong> → Alteração da estrutura da proteína. Causas: Temperatura, pH, Substâncias químicas.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">7. ENZIMAS E 8. ESPECIFICIDADE</h3>
+                            <p><strong>Conceito:</strong> → Catalisadores biológicos. <strong>Função:</strong> → Aceleram reações químicas.</p>
+                            <ul class="list-disc pl-5 mt-3 space-y-1 text-sm">
+                                <li><strong>Modelo:</strong> “Chave-fechadura”.</li>
+                                <li><strong>Substrato:</strong> Molécula sobre a qual a enzima atua.</li>
+                                <li><strong>Complexo enzima-substrato:</strong> União temporária entre enzima e substrato.</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">9 e 10. ATIVIDADE ENZIMÁTICA</h3>
+                            <p>Fatores que interferem na ação enzimática: <strong>Temperatura, pH e Concentração do substrato.</strong></p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-sm">
+                                <li>Existe temperatura ótima. Muito alta desnatura.</li>
+                                <li>Cada enzima possui pH ideal (Ex: Pepsina = ácido, Ptialina = neutro, Lipase = básico).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        11. IMUNIZAÇÃO, SORO E VACINA
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">11. ANTICORPOS</h3>
+                            <p>→ Proteínas de defesa produzidas pelo organismo.</p>
+                            <p><strong>Antígeno:</strong> → Corpo estranho que estimula produção de anticorpos.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">12. TIPOS DE IMUNIZAÇÃO</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="font-bold text-beige-900">Ativa (Organismo produz)</p>
+                                    <ul class="list-disc pl-5">
+                                        <li><strong>Natural:</strong> Após contrair doença.</li>
+                                        <li><strong>Artificial:</strong> Vacina.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-beige-900">Passiva (Recebe prontos)</p>
+                                    <ul class="list-disc pl-5">
+                                        <li><strong>Natural:</strong> Mãe para o bebê.</li>
+                                        <li><strong>Artificial:</strong> Soro.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200 overflow-x-auto">
+                            <h3 class="font-bold text-beige-900 text-xl mb-3">13. SORO E VACINA</h3>
+                            <table class="w-full text-sm text-left">
+                                <thead class="bg-beige-100 text-beige-900">
+                                    <tr><th class="px-3 py-2 rounded-tl-lg">Soro</th><th class="px-3 py-2 rounded-tr-lg">Vacina</th></tr>
+                                </thead>
+                                <tbody class="divide-y divide-beige-200 bg-white">
+                                    <tr><td class="px-3 py-2">Possui anticorpos prontos</td><td class="px-3 py-2">Possui antígenos</td></tr>
+                                    <tr><td class="px-3 py-2">Ação rápida</td><td class="px-3 py-2">Ação mais lenta</td></tr>
+                                    <tr><td class="px-3 py-2">Imunização passiva</td><td class="px-3 py-2">Imunização ativa</td></tr>
+                                    <tr><td class="px-3 py-2">Efeito temporário</td><td class="px-3 py-2">Efeito duradouro</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="mt-12 bg-beige-200 p-6 rounded-2xl border border-beige-300 shadow-sm" id="quiz-bioB-container">
+                <h3 class="text-xl font-bold text-beige-900 flex items-center mb-4"><span class="mr-2">🎯</span> Treino Rápido</h3>
+                <p class="mb-4 font-medium">Sobre a imunização, qual é a principal diferença técnica entre Soro e Vacina?</p>
+                <div class="space-y-2" id="quiz-bioB-options">
+                    <button onclick="checkAnswer('bioB', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">A) A vacina possui anticorpos prontos e o soro estimula a imunidade ativa.</button>
+                    <button onclick="checkAnswer('bioB', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">B) O soro tem efeito duradouro e a vacina tem efeito temporário.</button>
+                    <button onclick="checkAnswer('bioB', this, true)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">C) O soro possui anticorpos prontos (ação rápida/temporária), enquanto a vacina possui antígenos (imunização ativa/duradoura).</button>
+                    <button onclick="checkAnswer('bioB', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">D) Ambos promovem imunização ativa, mas a vacina age mais rapidamente.</button>
+                </div>
+                <p id="quiz-bioB-feedback" class="mt-4 font-bold text-center hidden"></p>
+            </div>
+        </section>
+
+        <section id="bioIti" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-beige-900 mb-2">BIOLOGIA ITINERÁRIO</h2>
+                <p class="text-beige-800 font-medium">Biodiversidade em risco e Consumo e Produção Sustentáveis</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        1 A 4. BIODIVERSIDADE
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">1. BIODIVERSIDADE</h3>
+                            <p><strong>Conceito:</strong> → Conjunto de todos os seres vivos existentes em um ambiente. Inclui Animais, Plantas, Fungos, Bactérias e Ecossistemas.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">2. IMPORTÂNCIA</h3>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Equilíbrio ecológico</li><li>Produção de alimentos e medicamentos</li>
+                                <li>Manutenção das cadeias alimentares</li><li>Regulação do clima</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">3. RISCOS E 4. CONSEQUÊNCIAS</h3>
+                            <p class="font-bold mb-1">Principais Causas:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm mb-3">
+                                <li><strong>Desmatamento:</strong> Destruição dos habitats.</li>
+                                <li><strong>Queimadas:</strong> Desequilíbrio e morte de espécies.</li>
+                                <li><strong>Poluição:</strong> Contaminação (água, solo, ar).</li>
+                                <li><strong>Caça e pesca predatória:</strong> Redução de populações.</li>
+                                <li><strong>Mudanças climáticas:</strong> Alterações nos ecossistemas.</li>
+                            </ul>
+                            <p class="font-bold mb-1">Consequências:</p>
+                            <p class="text-sm">Extinção de espécies, desequilíbrio ecológico, alteração das cadeias alimentares, redução de recursos naturais, aumento de problemas ambientais.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden border border-beige-200">
+                    <summary class="px-6 py-4 bg-beige-50 font-bold text-lg hover:bg-beige-200 transition flex justify-between items-center">
+                        5 A 9. SUSTENTABILIDADE
+                        <span class="text-beige-400 text-sm">▼</span>
+                    </summary>
+                    <div class="p-6 text-beige-800 border-t border-beige-200 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">5. CONSUMO E 6. PRODUÇÃO</h3>
+                            <p><strong>Consumo Sustentável:</strong> → Consumir de forma consciente sem prejudicar o meio ambiente (Ex: Economizar água/energia, reciclar, reutilizar).</p>
+                            <p class="mt-3"><strong>Produção Sustentável:</strong> → Produzir causando o menor impacto ambiental possível. <em>Objetivos:</em> Preservar recursos, reduzir poluição/desperdícios, garantir qualidade de vida.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">7. PRÁTICAS E 8. DESENVOLVIMENTO</h3>
+                            <p><strong>Práticas:</strong> Reciclagem, Coleta seletiva, Energias renováveis, Reaproveitamento, Tratamento de resíduos.</p>
+                            <p class="mt-3"><strong>8. Desenvolvimento Sustentável:</strong> → Atende as necessidades atuais sem comprometer as futuras gerações. Baseado em: Economia, Sociedade e Meio ambiente.</p>
+                        </div>
+                        <div class="pt-4 border-t border-beige-200">
+                            <h3 class="font-bold text-beige-900 text-xl mb-2">9. PRESERVAÇÃO AMBIENTAL</h3>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Criação de áreas de preservação</li>
+                                <li>Fiscalização ambiental</li>
+                                <li>Educação ambiental</li>
+                                <li>Uso consciente dos recursos naturais</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="mt-12 bg-beige-200 p-6 rounded-2xl border border-beige-300 shadow-sm" id="quiz-bioIti-container">
+                <h3 class="text-xl font-bold text-beige-900 flex items-center mb-4"><span class="mr-2">🎯</span> Treino Rápido</h3>
+                <p class="mb-4 font-medium">O que define corretamente o conceito de "Desenvolvimento Sustentável"?</p>
+                <div class="space-y-2" id="quiz-bioIti-options">
+                    <button onclick="checkAnswer('bioIti', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">A) O crescimento econômico contínuo focado apenas no bem-estar financeiro atual.</button>
+                    <button onclick="checkAnswer('bioIti', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">B) A interrupção total da produção industrial para preservar florestas.</button>
+                    <button onclick="checkAnswer('bioIti', this, true)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">C) O desenvolvimento que atende às necessidades atuais sem comprometer a capacidade das gerações futuras de atenderem às suas.</button>
+                    <button onclick="checkAnswer('bioIti', this, false)" class="w-full text-left p-3 bg-white rounded-lg border border-beige-300 hover:bg-beige-50 transition">D) A utilização desenfreada de recursos renováveis, pois eles nunca se esgotam.</button>
+                </div>
+                <p id="quiz-bioIti-feedback" class="mt-4 font-bold text-center hidden"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-beige-900 text-beige-200 text-center py-6 text-sm mt-auto">
+        <p>Desenvolvido para máxima produtividade nos estudos.</p>
+    </footer>
+
+    <script>
+        // Função para alternar entre as abas
+        function openTab(tabName) {
+            // Oculta todas as abas
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Reseta o estilo dos botões
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-beige-800', 'text-beige-900');
+                btn.classList.add('border-transparent', 'text-beige-800/70');
+            });
+
+            // Ativa a aba clicada
+            document.getElementById(tabName).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.classList.remove('border-transparent', 'text-beige-800/70');
+            activeBtn.classList.add('border-beige-800', 'text-beige-900');
+        }
+
+        // Lógica do Quiz (Uma tentativa)
+        const attempted = { bioA: false, bioB: false, bioIti: false };
+
+        function checkAnswer(subject, buttonEl, isCorrect) {
+            if (attempted[subject]) return; // Impede múltiplas tentativas
+            
+            attempted[subject] = true;
+            const container = document.getElementById(`quiz-${subject}-options`);
+            const feedback = document.getElementById(`quiz-${subject}-feedback`);
+            const buttons = container.querySelectorAll('button');
+
+            // Desativa todos os botões e mostra visualmente
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-beige-50', 'cursor-pointer');
+                btn.classList.add('opacity-60', 'cursor-not-allowed');
+            });
+
+            // Destaca a resposta clicada
+            buttonEl.classList.remove('opacity-60', 'bg-white');
+            
+            if (isCorrect) {
+                buttonEl.classList.add('bg-green-100', 'border-green-500', 'text-green-900', 'opacity-100');
+                feedback.innerHTML = "✅ Resposta Correta! Excelente!";
+                feedback.className = "mt-4 font-bold text-center text-green-700 block";
+            } else {
+                buttonEl.classList.add('bg-red-100', 'border-red-500', 'text-red-900', 'opacity-100');
+                feedback.innerHTML = "❌ Resposta Incorreta. Tente revisar o conteúdo acima.";
+                feedback.className = "mt-4 font-bold text-center text-red-700 block";
+                
+                // Mostra a correta
+                buttons.forEach(btn => {
+                    if(btn.getAttribute('onclick').includes('true')) {
+                        btn.classList.remove('opacity-60');
+                        btn.classList.add('border-green-500', 'bg-green-50', 'opacity-100');
+                    }
+                });
+            }
+        }
+
+        // Script básico para registrar o Service Worker e ativar a instalação (PWA)
+        if ('serviceWorker' in navigator) {
+            // Cria um service worker falso em memória apenas para cumprir o requisito do PWA
+            const swCode = `
+                self.addEventListener('install', (e) => e.waitUntil(self.skipWaiting()));
+                self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
+                self.addEventListener('fetch', (e) => {});
+            `;
+            const blob = new Blob([swCode], { type: 'application/javascript' });
+            navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(console.error);
+        }
+    </script>
+</body>
+</html>
