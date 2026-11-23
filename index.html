@@ -2,919 +2,607 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revisão de Lucas M</title>
-<meta name="description" content="Revisão do 4º bimestre: Química A, Química B, Análise Linguística e Literatura.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Primeiros Passos</title>
+<meta name="description" content="Checklist de recuperação pós-operatória do joelho: reconstrução ligamentar e reparo meniscal.">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#D7CCC8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0F3D3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F5F5F0;
-    --card: #FDFBF7;
-    --line: #EAE6DF;
-    --accent: #D7CCC8;
-    --accent-2: #BCAAA4;
-    --text: #3E2723;
-    --muted: #6D4C41;
-    --box-tip: #EEF5EA;
-    --box-tip-line: #7CA36B;
-    --box-warn: #FBEFE3;
-    --box-warn-line: #D08B4A;
-    --box-ex: #F1ECE6;
-    --box-ex-line: #8D6E63;
-    --formula: #FFFFFF;
-    --good: #2E7D32;
-    --bad: #C62828;
+    --bg: #F6F3EC;
+    --bg-2: #EFE9DC;
+    --card: #FFFDF8;
+    --line: #E6DFCF;
+    --text: #1C2B29;
+    --muted: #5E6B68;
+    --brand: #0F3D3A;
+    --brand-2: #1F6B63;
+    --gold: #C8902E;
+    --gold-soft: #F6E7C8;
+    --ok: #2E8B57;
+    --ok-soft: #E2F2E8;
+    --warn: #B5542C;
+    --warn-soft: #FBE9DF;
+    --shadow: 0 1px 2px rgba(15,61,58,.06), 0 8px 24px rgba(15,61,58,.06);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #1E1A18;
-      --card: #2A2421;
-      --line: #3B332F;
-      --accent: #4E423C;
-      --accent-2: #6D5C54;
-      --text: #F1E9E4;
-      --muted: #C9B8AF;
-      --box-tip: #23301F;
-      --box-tip-line: #8DBA7A;
-      --box-warn: #3A2B1D;
-      --box-warn-line: #E0A064;
-      --box-ex: #332B27;
-      --box-ex-line: #B39A8E;
-      --formula: #1A1614;
-      --good: #81C784;
-      --bad: #EF9A9A;
+      --bg: #0C1716; --bg-2: #10201E; --card: #142725; --line: #21403C;
+      --text: #ECF2EF; --muted: #9DB2AD; --brand: #8FD3C6; --brand-2: #5FB8A8;
+      --gold: #E8B65A; --gold-soft: #3A2E17; --ok: #5CC98A; --ok-soft: #173426;
+      --warn: #F0946A; --warn-soft: #3A2117; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
     }
   }
+  :root[data-theme="dark"] {
+    --bg: #0C1716; --bg-2: #10201E; --card: #142725; --line: #21403C;
+    --text: #ECF2EF; --muted: #9DB2AD; --brand: #8FD3C6; --brand-2: #5FB8A8;
+    --gold: #E8B65A; --gold-soft: #3A2E17; --ok: #5CC98A; --ok-soft: #173426;
+    --warn: #F0946A; --warn-soft: #3A2117; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0; background: var(--bg); color: var(--text);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6; font-size: 17px;
+    font: 16px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding-bottom: env(safe-area-inset-bottom);
   }
-  header { background: var(--accent); position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
-  header h1 { margin: 0; text-align: center; font-size: 1.35rem; padding: 14px 16px 4px; }
-  header p { margin: 0; text-align: center; font-size: .85rem; color: var(--muted); padding-bottom: 8px; }
-  nav { display: flex; overflow-x: auto; border-top: 1px solid rgba(0,0,0,.06); }
-  nav button:first-child { margin-left: auto; }
-  nav button:last-child { margin-right: auto; }
-  nav button {
-    background: none; border: 0; border-bottom: 3px solid transparent; color: var(--muted);
-    font: inherit; font-weight: 600; font-size: .92rem; padding: 10px 14px; cursor: pointer; white-space: nowrap;
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px 48px; }
+  h1, h2, .serif { font-family: Fraunces, Georgia, serif; letter-spacing: -.01em; }
+  button { font: inherit; color: inherit; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, #0F3D3A 0%, #1F6B63 60%, #2D7F6F 100%);
+    color: #F6F3EC; padding: 28px 0 72px; position: relative; overflow: hidden;
   }
-  nav button.active { color: var(--text); border-bottom-color: var(--text); }
-  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
-  .tab { display: none; }
-  .tab.active { display: block; animation: fade .25s ease; }
-  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-  h2 { font-size: 1.7rem; margin: 0 0 4px; }
-  .subtitle { color: var(--muted); margin: 0 0 20px; }
-  section.card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 18px 8px; margin-bottom: 18px;
+  .hero::after {
+    content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px;
+    border-radius: 50%; background: radial-gradient(circle, rgba(232,182,90,.35), transparent 70%);
   }
-  section.card h3 { margin: 0 0 10px; font-size: 1.2rem; }
-  section.card h4 { margin: 16px 0 6px; font-size: 1.02rem; }
-  ul, ol { padding-left: 22px; margin: 8px 0 14px; }
-  li { margin-bottom: 6px; }
-  .formula {
-    background: var(--formula); border: 2px dashed var(--accent-2); border-radius: 10px;
-    text-align: center; font-size: 1.25rem; font-weight: 700; padding: 12px; margin: 12px 0;
-    font-family: "Cambria Math", Georgia, serif;
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 0; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; opacity: .8; }
+  .hero h1 { font-size: clamp(34px, 8vw, 48px); line-height: 1.05; margin: 8px 0 6px; }
+  .hero p { margin: 0; opacity: .88; max-width: 46ch; }
+  .day-pill {
+    display: inline-flex; align-items: baseline; gap: 8px; margin-top: 18px;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+    padding: 8px 14px; border-radius: 999px; font-weight: 600;
   }
-  .formula small { display: block; font-size: .8rem; font-weight: 400; color: var(--muted); font-family: system-ui, sans-serif; }
-  .box { border-left: 5px solid; border-radius: 8px; padding: 10px 14px; margin: 12px 0 16px; }
-  .box > b:first-child { display: block; margin-bottom: 4px; }
-  .tip { background: var(--box-tip); border-color: var(--box-tip-line); }
-  .warn { background: var(--box-warn); border-color: var(--box-warn-line); }
-  .ex { background: var(--box-ex); border-color: var(--box-ex-line); }
-  .ex p, .tip p, .warn p { margin: 4px 0; }
-  .step { display: flex; gap: 10px; margin: 6px 0; }
-  .step .n {
-    flex: 0 0 26px; height: 26px; border-radius: 50%; background: var(--accent);
-    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem;
+  .day-pill b { font-family: Fraunces, Georgia, serif; font-size: 22px; color: #F3C66E; }
+  .date-row { margin-top: 12px; font-size: 13px; opacity: .85; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .date-row input {
+    background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px; padding: 4px 8px; font: inherit; color-scheme: dark;
   }
-  .calc { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .95rem; }
-  details {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    margin: 10px 0; padding: 0 14px;
+
+  /* Cards */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 18px; box-shadow: var(--shadow); margin-top: 16px;
   }
-  details summary { cursor: pointer; padding: 12px 0; font-weight: 600; list-style: none; }
-  details summary::-webkit-details-marker { display: none; }
-  details summary::before { content: "▸ "; color: var(--muted); }
-  details[open] summary::before { content: "▾ "; }
-  details .answer { padding: 0 0 12px; border-top: 1px dashed var(--line); padding-top: 8px; }
-  .q { font-weight: 600; }
-  .tag {
-    display: inline-block; font-size: .75rem; font-weight: 700; background: var(--accent);
-    border-radius: 999px; padding: 2px 10px; margin-bottom: 6px; letter-spacing: .02em;
+  .lift { margin-top: -52px; position: relative; z-index: 2; }
+  .card h2 { font-size: 22px; margin: 0 0 4px; }
+  .card .sub { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+
+  /* Journey */
+  .journey-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .journey-top .pct { font-family: Fraunces, Georgia, serif; font-size: 28px; color: var(--gold); font-weight: 700; }
+  .track { position: relative; height: 10px; background: var(--bg-2); border-radius: 99px; margin: 26px 4px 8px; }
+  .track .fill { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, var(--brand-2), var(--gold)); border-radius: 99px; transition: width .8s cubic-bezier(.2,.8,.2,1); }
+  .flag {
+    position: absolute; top: 50%; transform: translate(-50%,-50%); width: 18px; height: 18px; border-radius: 50%;
+    background: var(--card); border: 3px solid var(--line);
   }
-  /* Gerador de exercícios */
-  .trainer { background: var(--card); border: 2px solid var(--accent-2); border-radius: 14px; padding: 18px; margin-bottom: 18px; }
-  .trainer h3 { margin-top: 0; }
-  .trainer .problem { font-size: 1.05rem; margin: 10px 0; }
-  .trainer input {
-    font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--accent-2);
-    background: var(--formula); color: var(--text); width: 140px;
+  .flag.done { border-color: var(--gold); background: var(--gold); }
+  .runner { position: absolute; top: -26px; transform: translateX(-50%); font-size: 20px; transition: left .8s cubic-bezier(.2,.8,.2,1); }
+  .milestones { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+  .milestones li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
+  .milestones li.done { background: var(--gold-soft); border-color: transparent; }
+  .milestones li.next { border-color: var(--brand-2); }
+  .milestones .m-day { flex: 0 0 auto; min-width: 58px; font-weight: 700; color: var(--brand-2); font-size: 14px; }
+  .milestones li.done .m-day { color: var(--gold); }
+  .milestones .m-txt { font-size: 14.5px; }
+  .milestones .m-txt small { display: block; color: var(--muted); font-size: 12.5px; }
+
+  /* Today */
+  .today-head { display: flex; gap: 16px; align-items: center; }
+  .ring { flex: 0 0 auto; width: 84px; height: 84px; position: relative; }
+  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring .bg { stroke: var(--bg-2); }
+  .ring .fg { stroke: var(--ok); stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 700; font-size: 18px; }
+  .streak { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .streak b { color: var(--gold); }
+
+  .list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  .item {
+    display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+    cursor: pointer; transition: background .2s, border-color .2s, transform .1s;
   }
-  .trainer button, .btn {
-    font: inherit; font-weight: 600; padding: 8px 14px; border-radius: 8px; border: 0;
-    background: var(--accent); color: var(--text); cursor: pointer; margin: 4px 4px 4px 0;
+  .item:active { transform: scale(.99); }
+  .item:focus-visible { outline: 3px solid var(--brand-2); outline-offset: 2px; }
+  .box {
+    flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--brand-2);
+    display: grid; place-items: center; margin-top: 1px; transition: all .2s;
   }
-  .trainer button:hover { background: var(--accent-2); }
-  .feedback { margin-top: 10px; font-weight: 600; }
-  .feedback.ok { color: var(--good); }
-  .feedback.no { color: var(--bad); }
-  .solution { margin-top: 10px; display: none; }
-  .solution.show { display: block; }
-  .score { font-size: .85rem; color: var(--muted); }
-  footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 20px 16px 40px; }
+  .box svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 3; fill: none; opacity: 0; transform: scale(.4); transition: all .25s cubic-bezier(.3,1.6,.5,1); }
+  .item[aria-pressed="true"] { background: var(--ok-soft); border-color: transparent; }
+  .item[aria-pressed="true"] .box { background: var(--ok); border-color: var(--ok); }
+  .item[aria-pressed="true"] .box svg { opacity: 1; transform: scale(1); }
+  .item[aria-pressed="true"] .t { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--ok) 60%, transparent); }
+  .t { font-weight: 600; font-size: 15px; }
+  .d { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--gold-soft); color: var(--gold); margin-left: 6px; vertical-align: 2px; }
+
+  /* Ice */
+  .ice { margin-top: 14px; padding: 14px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
+  .ice-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .drops { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
+  .drop {
+    width: 40px; height: 40px; border-radius: 12px; border: 2px dashed var(--line); background: var(--card);
+    display: grid; place-items: center; font-size: 18px; cursor: pointer;
+  }
+  .drop.on { border: 2px solid #4A9FD8; background: color-mix(in srgb, #4A9FD8 18%, var(--card)); }
+  .drop.min::after { content: ""; }
+  .timer { font-variant-numeric: tabular-nums; font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 700; }
+  .timer-msg { font-size: 13px; color: var(--muted); }
+  .btn {
+    border: 0; border-radius: 12px; padding: 10px 16px; font-weight: 600; cursor: pointer;
+    background: var(--brand); color: var(--bg);
+  }
+  .btn.ghost { background: transparent; color: var(--brand-2); border: 1px solid var(--line); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* Week */
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 12px; }
+  .wd { text-align: center; font-size: 11px; color: var(--muted); }
+  .wd .dot { width: 100%; aspect-ratio: 1; max-width: 40px; margin: 4px auto 0; border-radius: 10px; background: var(--bg-2); display: grid; place-items: center; font-size: 15px; }
+  .wd .dot.full { background: var(--gold); color: #fff; }
+  .wd .dot.part { background: color-mix(in srgb, var(--ok) 35%, var(--bg-2)); }
+  .wd .dot.today { outline: 2px solid var(--brand-2); outline-offset: 2px; }
+
+  /* Rules */
+  .rules { display: grid; gap: 10px; margin-top: 12px; }
+  .rule { display: flex; gap: 12px; padding: 12px 14px; border-radius: 14px; background: var(--warn-soft); }
+  .rule.off { background: var(--bg); opacity: .65; }
+  .rule .ic { font-size: 20px; line-height: 1.2; }
+  .rule b { display: block; font-size: 14.5px; }
+  .rule span { font-size: 13px; color: var(--muted); }
+
+  .contact a { color: var(--brand-2); font-weight: 600; text-decoration: none; }
+  .contact p { margin: 6px 0; font-size: 14.5px; }
+  .alert { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: var(--warn-soft); font-size: 14px; }
+
+  footer { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 28px; }
+  footer button { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font-size: 12.5px; }
+
+  /* Toast + confetti */
+  .toast {
+    position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translate(-50%, 140%);
+    background: var(--brand); color: var(--bg); padding: 12px 18px; border-radius: 14px; font-weight: 600;
+    box-shadow: var(--shadow); transition: transform .4s cubic-bezier(.2,.9,.3,1.2); z-index: 50; max-width: calc(100% - 32px); text-align: center;
+  }
+  .toast.show { transform: translate(-50%, 0); }
+  #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 40; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
+<canvas id="confetti"></canvas>
 
-<header>
-  <h1>Revisão de Lucas M</h1>
-  <p>4º Bimestre · 1ª série do Ensino Médio</p>
-  <nav>
-    <button class="active" data-tab="quimA">Química A</button>
-    <button data-tab="quimB">Química B</button>
-    <button data-tab="port">Análise Linguística</button>
-    <button data-tab="lit">Literatura</button>
-  </nav>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Recuperação do joelho</div>
+    <h1>Primeiros Passos</h1>
+    <p id="motto">Reconstrução ligamentar e reparo meniscal. Cada passo marcado aqui é uma vitória.</p>
+    <div class="day-pill"><span>Dia</span><b id="dayNum">0</b><span id="dayOf">da recuperação</span></div>
+    <div class="date-row">
+      <label for="surgery">Data da cirurgia:</label>
+      <input type="date" id="surgery">
+    </div>
+  </div>
 </header>
 
-<main>
-
-<!-- ======================= QUÍMICA A ======================= -->
-<div class="tab active" id="quimA">
-  <h2>Química A</h2>
-  <p class="subtitle">Diluição e mistura de soluções — com passo a passo dos cálculos</p>
-
-  <section class="card">
-    <h3>0. Antes de tudo: a ideia que resolve quase tudo</h3>
-    <p>Uma solução tem duas partes:</p>
-    <ul>
-      <li><b>Soluto</b>: o que está dissolvido (sal, açúcar, HCl…).</li>
-      <li><b>Solvente</b>: o que dissolve (quase sempre a água).</li>
-    </ul>
-    <p><b>Concentração</b> é só "quanto de soluto tem em cada litro". Pense num suco: se você coloca mais água, o suco fica <b>mais fraco</b>, mas a quantidade de pó continua a mesma.</p>
-    <div class="box tip">
-      <b>💡 A frase mágica</b>
-      <p>Em qualquer exercício deste bimestre, pergunte: <b>"quanto soluto eu tenho?"</b></p>
-      <p>Quantidade de soluto = concentração × volume. Todas as fórmulas abaixo saem daqui.</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>1. Concentrações</h3>
-    <h4>Concentração comum (C) — em g/L</h4>
-    <div class="formula">C = massa do soluto ÷ volume da solução<small>gramas por litro (g/L)</small></div>
-    <h4>Concentração em quantidade de matéria (M) — em mol/L</h4>
-    <div class="formula">M = nº de mols do soluto ÷ volume da solução<small>mols por litro (mol/L)</small></div>
-    <div class="box warn">
-      <b>⚠️ Volume sempre em litros nessas duas fórmulas</b>
-      <p>Para passar de mL para L, <b>divida por 1000</b> (ande 3 casas com a vírgula para a esquerda):</p>
-      <ul>
-        <li>1000 mL = 1 L</li>
-        <li>500 mL = 0,5 L</li>
-        <li>250 mL = 0,25 L</li>
-        <li>100 mL = 0,1 L</li>
-        <li>40 mL = 0,04 L</li>
-      </ul>
-    </div>
-    <div class="box ex">
-      <b>📝 Exemplo rápido</b>
-      <p>Dissolvi 20 g de sal em 500 mL de água. Qual a concentração?</p>
-      <p class="calc">500 mL = 0,5 L → C = 20 ÷ 0,5 = <b>40 g/L</b></p>
-      <p>Tradução: em cada 1 litro dessa solução haveria 40 g de sal.</p>
-    </div>
-    <div class="box ex">
-      <b>📝 Exemplo rápido (mol/L)</b>
-      <p>Uma solução de 200 mL tem 0,1 mol de NaOH. Qual a concentração?</p>
-      <p class="calc">200 mL = 0,2 L → M = 0,1 ÷ 0,2 = <b>0,5 mol/L</b></p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>2. Diluição</h3>
-    <p><b>Diluir = colocar mais água.</b> O que acontece:</p>
-    <ul>
-      <li>A quantidade de soluto <b>não muda</b> (ninguém tirou nem pôs soluto).</li>
-      <li>O volume <b>aumenta</b>.</li>
-      <li>A concentração <b>diminui</b>.</li>
-    </ul>
-    <p>Como o soluto é o mesmo antes e depois, "soluto antes = soluto depois":</p>
-    <div class="formula">C₁ · V₁ = C₂ · V₂<small>também vale com mol/L: M₁ · V₁ = M₂ · V₂</small></div>
-    <ul>
-      <li><b>1</b> = antes de diluir (a solução que você tinha).</li>
-      <li><b>2</b> = depois de diluir (a solução final).</li>
-      <li><b>Água adicionada = V₂ − V₁</b> (volume final menos o inicial).</li>
-    </ul>
-    <div class="box tip">
-      <b>💡 Aqui pode usar mL direto!</b>
-      <p>Na fórmula C₁·V₁ = C₂·V₂, se os <b>dois</b> volumes estiverem em mL, a conta funciona igual e a resposta sai em mL. Só não misture mL com L na mesma conta.</p>
-    </div>
-
-    <h4>Como resolver qualquer diluição em 4 passos</h4>
-    <div class="step"><span class="n">1</span><div><b>Anote os dados</b> do enunciado: C₁ = ?, V₁ = ?, C₂ = ?, V₂ = ?. Um deles vai ser o que a questão pede.</div></div>
-    <div class="step"><span class="n">2</span><div><b>Coloque na fórmula</b> C₁ · V₁ = C₂ · V₂.</div></div>
-    <div class="step"><span class="n">3</span><div><b>Multiplique</b> o lado que tem os dois números conhecidos.</div></div>
-    <div class="step"><span class="n">4</span><div><b>Divida</b> esse resultado pelo número que está junto do "?". Pronto, achou.</div></div>
-
-    <div class="box ex">
-      <b>📝 Exemplo resolvido (do guia)</b>
-      <p>50 mL de solução a 30 g/L diluídos até 150 mL. Qual a concentração final?</p>
-      <ol>
-        <li>Dados: C₁ = 30 g/L · V₁ = 50 mL · C₂ = ? · V₂ = 150 mL</li>
-        <li class="calc">30 · 50 = C₂ · 150</li>
-        <li class="calc">1500 = C₂ · 150</li>
-        <li class="calc">C₂ = 1500 ÷ 150 = <b>10 g/L</b></li>
-      </ol>
-      <p>Água adicionada: 150 − 50 = <b>100 mL</b>.</p>
-      <p>✅ Confere? A concentração caiu (30 → 10) e o volume subiu (50 → 150). Faz sentido!</p>
-    </div>
-
-    <h4>"X vezes menos concentrada"</h4>
-    <ul>
-      <li><b>Duas vezes menos concentrada</b>: C₂ = C₁ ÷ 2 → o volume final <b>dobra</b>.</li>
-      <li><b>Três vezes menos</b>: C₂ = C₁ ÷ 3 → volume final <b>× 3</b>.</li>
-      <li><b>Quatro vezes menos</b>: C₂ = C₁ ÷ 4 → volume final <b>× 4</b>.</li>
-    </ul>
-    <p>Atalho: se a concentração fica X vezes menor, o volume fica X vezes maior. Nem precisa da fórmula!</p>
-
-    <div class="box warn">
-      <b>⚠️ Pegadinha mais comum da prova</b>
-      <p>Leia se a pergunta quer o <b>volume final</b> (V₂) ou o <b>volume de água adicionada</b> (V₂ − V₁). Sublinhe essa parte do enunciado!</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>3. Mistura de soluções do <u>mesmo</u> soluto</h3>
-    <p>Exemplo: juntar sal com sal, HCl com HCl. Não tem reação. Então:</p>
-    <ul>
-      <li>Os <b>volumes se somam</b>.</li>
-      <li>As <b>quantidades de soluto se somam</b>.</li>
-    </ul>
-    <div class="formula">C_final = (C₁ · V₁ + C₂ · V₂) ÷ (V₁ + V₂)<small>soluto total ÷ volume total</small></div>
-
-    <h4>Passo a passo (sem decorar a fórmula)</h4>
-    <div class="step"><span class="n">1</span><div>Calcule <b>quanto soluto tem na 1ª solução</b>: C₁ × V₁.</div></div>
-    <div class="step"><span class="n">2</span><div>Calcule <b>quanto soluto tem na 2ª solução</b>: C₂ × V₂.</div></div>
-    <div class="step"><span class="n">3</span><div><b>Some</b> os dois → soluto total.</div></div>
-    <div class="step"><span class="n">4</span><div><b>Some os volumes</b> → volume total.</div></div>
-    <div class="step"><span class="n">5</span><div><b>Divida</b>: soluto total ÷ volume total.</div></div>
-
-    <div class="box ex">
-      <b>📝 Exemplo resolvido (do guia)</b>
-      <p>100 mL de NaCl a 0,5 mol/L + 400 mL de NaCl a 1,0 mol/L.</p>
-      <ol>
-        <li class="calc">1ª: 0,5 × 0,1 L = 0,05 mol</li>
-        <li class="calc">2ª: 1,0 × 0,4 L = 0,40 mol</li>
-        <li class="calc">Soluto total: 0,05 + 0,40 = 0,45 mol</li>
-        <li class="calc">Volume total: 100 + 400 = 500 mL = 0,5 L</li>
-        <li class="calc">0,45 ÷ 0,5 = <b>0,9 mol/L</b></li>
-      </ol>
-    </div>
-    <div class="box warn">
-      <b>⚠️ NÃO faça média simples!</b>
-      <p>(0,5 + 1,0) ÷ 2 = 0,75 está <b>errado</b>, porque tem muito mais da 2ª solução (400 mL) do que da 1ª (100 mL). A média simples só funciona se os volumes forem iguais.</p>
-      <p>Dica para conferir: a resposta sempre fica <b>entre</b> as duas concentrações, e mais perto da que tem mais volume (0,9 está mais perto de 1,0 ✅).</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>4. Mistura de solutos <u>diferentes</u></h3>
-    <p>Exemplo: glicose + sal. Eles não reagem e não se "somam". Cada um fica <b>sozinho</b>, só que espalhado num volume maior.</p>
-    <p>Então, para <b>cada soluto</b>, é como se fosse uma diluição:</p>
-    <div class="formula">C_final = C_inicial · V_inicial ÷ V_total</div>
-    <div class="box ex">
-      <b>📝 Exemplo resolvido (do guia)</b>
-      <p>200 mL de glicose a 30 g/L + 300 mL de sal a 10 g/L.</p>
-      <ul>
-        <li class="calc">Volume total = 200 + 300 = 500 mL</li>
-        <li class="calc">Glicose: 30 × 200 ÷ 500 = <b>12 g/L</b></li>
-        <li class="calc">Sal: 10 × 300 ÷ 500 = <b>6 g/L</b></li>
-      </ul>
-      <p>A resposta tem <b>dois valores</b>, um para cada soluto.</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>5. Como saber qual fórmula usar?</h3>
-    <ul>
-      <li>Só tem <b>uma solução</b> e pede concentração a partir de massa ou mols? → <b>C = m ÷ V</b> ou <b>M = n ÷ V</b> (volume em L!)</li>
-      <li>Fala em <b>"adicionar água"</b>, "diluir", "X vezes menos concentrada"? → <b>C₁·V₁ = C₂·V₂</b></li>
-      <li>Junta <b>duas soluções da mesma substância</b>? → <b>somar solutos ÷ somar volumes</b></li>
-      <li>Junta <b>duas substâncias diferentes</b>? → <b>cada uma separada</b>, dividindo pelo volume total</li>
-    </ul>
-  </section>
-
-  <!-- Treino do guia com resolução -->
-  <section class="card">
-    <h3>6. Treino do guia — com resolução</h3>
-    <p>Tente fazer no caderno primeiro e depois toque para ver a resolução.</p>
-
-    <details>
-      <summary>1) Quantos mL de água devem ser adicionados a 80 mL de uma solução 0,6 mol/L para que fique 0,2 mol/L?</summary>
-      <div class="answer">
-        <p>É diluição (adicionar água). Dados: M₁ = 0,6 · V₁ = 80 mL · M₂ = 0,2 · V₂ = ?</p>
-        <p class="calc">0,6 × 80 = 0,2 × V₂<br>48 = 0,2 × V₂<br>V₂ = 48 ÷ 0,2 = 240 mL</p>
-        <p>Cuidado: a pergunta quer a <b>água adicionada</b>!</p>
-        <p class="calc">Água = 240 − 80 = <b>160 mL</b></p>
+<main class="wrap">
+  <!-- Jornada -->
+  <section class="card lift" aria-labelledby="h-journey">
+    <div class="journey-top">
+      <div>
+        <h2 id="h-journey">Sua jornada</h2>
+        <p class="sub" id="journeySub">Até a liberação para agachar (2 meses)</p>
       </div>
-    </details>
+      <div class="pct" id="journeyPct">0%</div>
+    </div>
+    <div class="track" id="track"><div class="fill" id="trackFill"></div><span class="runner" id="runner" aria-hidden="true">🏃</span></div>
+    <ul class="milestones" id="milestones"></ul>
+  </section>
 
-    <details>
-      <summary>2) Um xarope tem 0,9 mol/L. O farmacêutico precisa de uma versão três vezes menos concentrada, partindo de 40 mL. Qual o volume final?</summary>
-      <div class="answer">
-        <p>"Três vezes menos concentrada" → M₂ = 0,9 ÷ 3 = 0,3 mol/L.</p>
-        <p class="calc">0,9 × 40 = 0,3 × V₂<br>36 = 0,3 × V₂<br>V₂ = 36 ÷ 0,3 = <b>120 mL</b></p>
-        <p>Atalho: 3 vezes menos concentrada → volume 3 vezes maior → 40 × 3 = 120 mL. ✅</p>
+  <!-- Hoje -->
+  <section class="card" aria-labelledby="h-today">
+    <div class="today-head">
+      <div class="ring" aria-hidden="true">
+        <svg viewBox="0 0 84 84"><circle class="bg" cx="42" cy="42" r="36" fill="none" stroke-width="9"/><circle class="fg" id="ringFg" cx="42" cy="42" r="36" fill="none" stroke-width="9" stroke-dasharray="226.2" stroke-dashoffset="226.2"/></svg>
+        <div class="lbl" id="ringLbl">0/0</div>
       </div>
-    </details>
-
-    <details>
-      <summary>3) Misturam-se 300 mL de HCl 2 mol/L com 200 mL de HCl 0,5 mol/L. Qual a concentração final?</summary>
-      <div class="answer">
-        <p>Mesmo soluto (HCl + HCl) → soma soluto, soma volume.</p>
-        <p class="calc">1ª: 2 × 0,3 L = 0,6 mol<br>2ª: 0,5 × 0,2 L = 0,1 mol<br>Total: 0,7 mol em 0,5 L<br>0,7 ÷ 0,5 = <b>1,4 mol/L</b></p>
-        <p>Conferindo: 1,4 está entre 0,5 e 2, mais perto de 2 (que tinha mais volume). ✅</p>
+      <div>
+        <h2 id="h-today">Missões de hoje</h2>
+        <div class="sub" id="todayDate" style="margin:0"></div>
+        <div class="streak" id="streak"></div>
       </div>
-    </details>
+    </div>
 
-    <details>
-      <summary>4) Misturam-se 1 L de solução de açúcar 30 g/L com 1 L de solução de sal 4 g/L. Quais as concentrações finais de cada um?</summary>
-      <div class="answer">
-        <p>Solutos diferentes → cada um separado. Volume total = 1 + 1 = 2 L.</p>
-        <p class="calc">Açúcar: 30 × 1 ÷ 2 = <b>15 g/L</b><br>Sal: 4 × 1 ÷ 2 = <b>2 g/L</b></p>
-        <p>Faz sentido: o volume dobrou, então cada concentração caiu pela metade.</p>
+    <ul class="list" id="daily"></ul>
+
+    <div class="ice" id="ice">
+      <div class="ice-top">
+        <div>
+          <div class="t">🧊 Compressas de gelo <span id="iceCount" class="tag">0/4</span></div>
+          <div class="d">4 a 6 vezes ao dia · 20 min cada · intervalo mínimo de 40 min</div>
+        </div>
       </div>
-    </details>
-  </section>
-
-  <!-- Gerador de exercícios -->
-  <div class="trainer" id="trainer">
-    <h3>🎯 Treino infinito de cálculos</h3>
-    <p>Gere quantos exercícios quiser, no estilo da prova. Digite sua resposta (só o número) e confira.</p>
-    <div class="problem" id="tr-problem"></div>
-    <div>
-      <input id="tr-input" type="text" inputmode="decimal" placeholder="Sua resposta" aria-label="Sua resposta">
-      <button id="tr-check">Conferir</button>
-      <button id="tr-show">Ver resolução</button>
-      <button id="tr-new">Novo exercício</button>
-    </div>
-    <div class="feedback" id="tr-feedback"></div>
-    <div class="solution box ex" id="tr-solution"></div>
-    <p class="score" id="tr-score"></p>
-  </div>
-</div>
-
-<!-- ======================= QUÍMICA B ======================= -->
-<div class="tab" id="quimB">
-  <h2>Química B</h2>
-  <p class="subtitle">Óxidos</p>
-
-  <section class="card">
-    <h3>1. O que é um óxido</h3>
-    <p>Óxido é um composto que tem:</p>
-    <ul>
-      <li><b>Só dois elementos</b> (composto binário);</li>
-      <li>um deles é o <b>oxigênio</b>, e ele é o mais eletronegativo dos dois.</li>
-    </ul>
-    <p>Exemplos: Na₂O, CaO, SO₂, Fe₂O₃.</p>
-    <div class="box warn">
-      <b>⚠️ Não são óxidos</b>
-      <p><b>H₂CO₃</b> (H, C, O) e <b>H₂SO₄</b> (H, S, O) têm <b>três</b> elementos. São <b>ácidos</b>, não óxidos.</p>
-      <p>Dica: conte as letras maiúsculas da fórmula. Se der 2 e uma delas for O → óxido.</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>2. Tipo de ligação</h3>
-    <ul>
-      <li><b>Metal + oxigênio → ligação iônica</b> (óxido iônico).<br>Ex.: Na₂O, CaO, Aℓ₂O₃, CuO</li>
-      <li><b>Ametal + oxigênio → ligação covalente</b> (óxido molecular).<br>Ex.: SO₂, CO, N₂O₅, Cℓ₂O</li>
-    </ul>
-    <div class="box tip">
-      <b>💡 Como saber se é metal ou ametal</b>
-      <p>Na tabela periódica: <b>metais</b> ficam à esquerda e no centro (Na, K, Ca, Mg, Fe, Cu, Aℓ, Pb…). <b>Ametais</b> ficam à direita (C, N, P, S, Cℓ…).</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>3. Nomenclatura</h3>
-    <h4>Óxidos moleculares (ametal) — usam prefixos</h4>
-    <p>Regra: <b>prefixo + óxido de + prefixo + nome do elemento</b></p>
-    <p>Prefixos: mono (1) · di (2) · tri (3) · tetra (4) · penta (5) · hexa (6) · hepta (7)</p>
-    <ul>
-      <li>SO₂ → <b>di</b>óxido de enxofre (2 oxigênios)</li>
-      <li>N₂O₅ → <b>pent</b>óxido de <b>di</b>nitrogênio (5 O, 2 N)</li>
-      <li>CO → <b>mon</b>óxido de carbono</li>
-    </ul>
-    <p>Quando o elemento tem só 1 átomo, não precisa colocar "mono" nele (é "dióxido de enxofre", não "dióxido de monoenxofre").</p>
-
-    <h4>Óxidos iônicos (metal) — "óxido de + metal"</h4>
-    <ul>
-      <li>Na₂O → óxido de sódio</li>
-      <li>CaO → óxido de cálcio</li>
-    </ul>
-    <p>Se o metal pode ter <b>mais de uma carga</b> (Fe, Cu, Pb…), coloca a carga em algarismo romano: óxido de ferro (II), óxido de ferro (III).</p>
-
-    <div class="box ex">
-      <b>📝 Como descobrir a carga do metal</b>
-      <p>O oxigênio nos óxidos vale <b>−2</b>, e a soma das cargas tem que dar <b>zero</b>.</p>
-      <p><b>PbO₂</b>: 2 oxigênios × (−2) = −4 → então o Pb é <b>+4</b> → óxido de chumbo (IV).</p>
-      <p><b>Fe₂O₃</b>: 3 oxigênios × (−2) = −6 → dividido entre 2 ferros → cada Fe é <b>+3</b> → óxido de ferro (III).</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>4. Comportamento em água</h3>
-    <h4>🔵 Óxido básico</h4>
-    <ul>
-      <li>Quem forma: metais <b>alcalinos</b> (Na, K, Li…) e <b>alcalino-terrosos</b> (Ca, Mg…). São iônicos.</li>
-      <li>Com água → forma <b>base</b>. Ex.: Na₂O + H₂O → 2 NaOH</li>
-      <li>Com ácido → <b>sal + água</b>.</li>
-    </ul>
-    <h4>🔴 Óxido ácido</h4>
-    <ul>
-      <li>Quem forma: <b>ametais</b> (moleculares).</li>
-      <li>Com água → forma <b>ácido</b>. Ex.: SO₃ + H₂O → H₂SO₄</li>
-      <li>Com base → <b>sal + água</b>.</li>
-    </ul>
-    <h4>⚪ Óxido neutro</h4>
-    <ul>
-      <li>CO, NO, N₂O.</li>
-      <li>Não reage com água, nem com ácido, nem com base.</li>
-    </ul>
-    <div class="box tip">
-      <b>💡 Fenolftaleína (indicador)</b>
-      <p><b>Rosa</b> em meio básico · <b>incolor</b> em meio ácido.</p>
-      <p>Óxido básico na água → solução fica rosa. Óxido ácido numa solução rosa → ela fica incolor.</p>
-    </div>
-    <div class="box ex">
-      <b>📝 Como montar uma reação com água (macete)</b>
-      <p>Óxido básico + H₂O: o metal pega OH. CaO + H₂O → <b>Ca(OH)₂</b></p>
-      <p>Óxido ácido + H₂O: junte todos os átomos e coloque o H na frente. SO₃ + H₂O → H₂ + S + O₄ → <b>H₂SO₄</b></p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>5. Óxidos e meio ambiente</h3>
-    <ul>
-      <li>Óxidos de <b>enxofre</b> (SO₂, SO₃) e de <b>nitrogênio</b> (NO, NO₂) vêm da queima de combustíveis fósseis.</li>
-      <li>Eles causam a <b>chuva ácida</b>.</li>
-      <li>Solução: indústrias usam substâncias <b>básicas</b> (CaO ou Ca(OH)₂) que neutralizam esses óxidos e formam sais (sulfato de cálcio, nitrato de cálcio).</li>
-      <li>Esse processo se chama <b>lavagem de gases</b> ou <b>dessulfurização</b>.</li>
-    </ul>
-    <div class="box ex">
-      <b>📝 Exemplo de neutralização</b>
-      <p>MgO + 2 HCℓ → MgCℓ₂ + H₂O</p>
-      <p>(óxido básico + ácido → sal + água)</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>6. Treino do guia — com resolução</h3>
-    <details>
-      <summary>1) Dê o nome de: SO₂, N₂O₃, Aℓ₂O₃ e FeO.</summary>
-      <div class="answer">
-        <ul>
-          <li>SO₂ → dióxido de enxofre</li>
-          <li>N₂O₃ → trióxido de dinitrogênio</li>
-          <li>Aℓ₂O₃ → óxido de alumínio (alumínio tem carga fixa +3, não leva romano)</li>
-          <li>FeO → óxido de ferro (II) (1 O = −2, então Fe = +2)</li>
-        </ul>
+      <div class="drops" id="drops" aria-label="Sessões de gelo de hoje"></div>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <button class="btn" id="iceBtn">Começar compressa</button>
+        <div>
+          <div class="timer" id="iceTimer" hidden>20:00</div>
+          <div class="timer-msg" id="iceMsg">Toque para iniciar o cronômetro de 20 min.</div>
+        </div>
       </div>
-    </details>
-    <details>
-      <summary>2) Classifique como iônico ou covalente: Li₂O, CO, CaO, P₂O₅.</summary>
-      <div class="answer">
-        <ul>
-          <li>Li₂O → <b>iônico</b> (Li é metal)</li>
-          <li>CO → <b>covalente</b> (C é ametal)</li>
-          <li>CaO → <b>iônico</b> (Ca é metal)</li>
-          <li>P₂O₅ → <b>covalente</b> (P é ametal)</li>
-        </ul>
-      </div>
-    </details>
-    <details>
-      <summary>3) Escreva a reação do CaO com a água.</summary>
-      <div class="answer"><p>CaO + H₂O → <b>Ca(OH)₂</b> (óxido básico + água → base: hidróxido de cálcio)</p></div>
-    </details>
-    <details>
-      <summary>4) Escreva a reação do CO₂ com Ca(OH)₂, formando sal e água.</summary>
-      <div class="answer"><p>CO₂ + Ca(OH)₂ → <b>CaCO₃ + H₂O</b> (óxido ácido + base → sal: carbonato de cálcio + água)</p></div>
-    </details>
-    <details>
-      <summary>5) Por que H₂CO₃ não pode ser chamado de óxido?</summary>
-      <div class="answer"><p>Porque tem <b>três elementos</b> (H, C e O). Óxido precisa ter só dois, sendo um deles o oxigênio. H₂CO₃ é um <b>ácido</b> (ácido carbônico).</p></div>
-    </details>
-  </section>
-</div>
-
-<!-- ======================= ANÁLISE LINGUÍSTICA ======================= -->
-<div class="tab" id="port">
-  <h2>Análise Linguística</h2>
-  <p class="subtitle">Pronomes e verbos no texto</p>
-
-  <section class="card">
-    <h3>1. Pessoas do discurso</h3>
-    <ul>
-      <li><b>1ª pessoa — quem fala</b>: eu, nós, me, mim, meu, nosso</li>
-      <li><b>2ª pessoa — com quem se fala</b>: tu, você, vós, te, ti, teu, seu (de você)</li>
-      <li><b>3ª pessoa — de quem ou do que se fala</b>: ele, ela, eles, lhe, o, a, seu, dele</li>
-    </ul>
-    <div class="box tip">
-      <b>💡 Em propagandas e campanhas</b>
-      <p>Textos persuasivos falam direto com o leitor (<b>"você"</b>, 2ª pessoa) ou o incluem (<b>"nós"</b>) para aproximá-lo da mensagem. Ex.: "<i>Você</i> pode fazer a diferença." / "<i>Juntos</i>, <i>nós</i> vencemos a dengue."</p>
     </div>
+
+    <h3 class="serif" style="margin:18px 0 0;font-size:16px">Últimos 7 dias</h3>
+    <div class="week" id="week"></div>
   </section>
 
-  <section class="card">
-    <h3>2. Dêixis — palavras que apontam para FORA do texto</h3>
-    <p>Uma palavra é <b>dêitica</b> quando você só entende se souber a situação: <b>quem</b> falou, <b>onde</b> e <b>quando</b>.</p>
-    <p>"<i>Eu te espero aqui amanhã.</i>" → Quem é "eu"? Onde é "aqui"? Que dia é "amanhã"? Sem saber, a frase fica incompleta.</p>
-    <ul>
-      <li><b>Dêixis de pessoa</b>: eu, tu, você, nós, me, mim, comigo</li>
-      <li><b>Dêixis de espaço</b>: aqui, aí, ali, lá, este, esse, aquele (apontando objetos)</li>
-      <li><b>Dêixis de tempo</b>: hoje, ontem, amanhã, agora, nesta semana</li>
-    </ul>
-    <p>Por isso, um texto com dêiticos (como "eles" ou "este aqui") pode depender de uma <b>imagem</b> ou da <b>situação</b> para ser entendido — muito comum em tirinhas e propagandas.</p>
+  <!-- Preparativos -->
+  <section class="card" aria-labelledby="h-setup">
+    <h2 id="h-setup">Preparativos</h2>
+    <p class="sub">Coisas para resolver uma vez só. <span id="setupCount"></span></p>
+    <ul class="list" id="setup"></ul>
   </section>
 
-  <section class="card">
-    <h3>3. Anáfora e catáfora — apontam para DENTRO do texto</h3>
-    <ul>
-      <li><b>Anáfora</b>: o pronome <b>retoma</b> algo que já foi dito (olha para trás ⬅️).<br>"Encontrei <u>Pedro</u>. <b>Ele</b> estava feliz."</li>
-      <li><b>Catáfora</b>: o pronome <b>antecipa</b> algo que ainda vai ser dito (olha para frente ➡️).<br>"<b>Ele</b> chegou cedo: <u>o diretor da escola</u>." / "Só quero <b>isto</b>: <u>paz</u>."</li>
-    </ul>
-    <p>Esses recursos garantem a <b>coesão</b>: ligam as partes do texto e evitam repetições.</p>
-    <div class="box tip">
-      <b>💡 Macete</b>
-      <p><b>Ana</b>fora → para <b>trás</b> (o que já passou). <b>Cata</b>fora → para frente. Se depois do pronome vem <b>dois-pontos (:)</b>, quase sempre é catáfora.</p>
-    </div>
-    <h4>Demonstrativos na coesão</h4>
-    <ul>
-      <li><b>Este / isto</b>: o que <b>vai ser dito</b>, ou o <b>mais próximo</b> entre dois termos citados.</li>
-      <li><b>Esse / isso</b>: o que <b>acabou de ser dito</b>.</li>
-      <li><b>Aquele / aquilo</b>: o <b>mais distante</b> entre dois termos citados.</li>
-    </ul>
-    <div class="box ex">
-      <b>📝 Exemplo</b>
-      <p>"Gosto de <u>cinema</u> e de <u>teatro</u>; <b>este</b> me emociona, <b>aquele</b> me diverte."</p>
-      <p>este = teatro (mais perto) · aquele = cinema (mais longe)</p>
-    </div>
+  <!-- Regras -->
+  <section class="card" aria-labelledby="h-rules">
+    <h2 id="h-rules">Combinados com o médico</h2>
+    <p class="sub">Os limites que protegem a cirurgia. Eles mudam conforme os dias passam.</p>
+    <div class="rules" id="rules"></div>
   </section>
 
-  <section class="card">
-    <h3>4. Como descobrir o referente de um pronome</h3>
-    <div class="step"><span class="n">1</span><div>Pergunte ao pronome: <b>"quem?"</b> ou <b>"o quê?"</b></div></div>
-    <div class="step"><span class="n">2</span><div>Procure no texto um termo que <b>concorde</b> com ele (masculino/feminino, singular/plural).</div></div>
-    <div class="step"><span class="n">3</span><div><b>Teste</b>: troque o pronome pelo termo. Se a frase fizer sentido, achou.</div></div>
-    <div class="box warn">
-      <b>⚠️ Em textos literários</b>
-      <p>Preste atenção às mudanças de narrador: um "eu" que aparece de repente pode ser a voz do narrador comentando a história.</p>
-    </div>
-    <h4>Ordem direta</h4>
-    <p>Ordem direta = <b>sujeito + verbo + complementos</b>.</p>
-    <p>"Não o sei eu" → "<b>Eu</b> não sei <b>isso</b>." (o sujeito vai para o começo, e o pronome "o" é trocado pelo que ele representa)</p>
+  <!-- Contato -->
+  <section class="card contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Contatos</h2>
+    <p><b>Dr. Daniel G. Bisterço</b> · Ortopedia</p>
+    <p>📱 <a href="tel:+5514997891250">(14) 99789-1250</a></p>
+    <p>📍 Clínica Stauros: Rua Amadeu Sangiovani, 5-57</p>
+    <div class="alert">⚠️ Urgências ou dúvidas sobre a ferida operatória: procure o <b>Pronto Atendimento (PA) do hospital</b>.</div>
   </section>
 
-  <section class="card">
-    <h3>5. Modos verbais</h3>
-    <ul>
-      <li><b>Indicativo — certeza, fato.</b><br>"A vacina protege." · Comum em notícias e textos científicos.</li>
-      <li><b>Subjuntivo — dúvida, hipótese, desejo.</b><br>"Talvez ele venha." / "Se eu soubesse…" · Comum em opiniões e condições.</li>
-      <li><b>Imperativo — ordem, conselho, pedido.</b><br>"Leia o manual." / "Não desista!" · Comum em propagandas, campanhas, receitas, manuais.</li>
-    </ul>
-    <div class="box tip">
-      <b>💡 Dica</b>
-      <p>Subjuntivo costuma vir depois de <b>talvez, se, quando, que</b> ("espero <i>que</i> você <b>passe</b>").</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>6. Tempo verbal e sequência de ações</h3>
-    <ul>
-      <li><b>Pretérito perfeito</b> (chegou, abriu, saiu): ações <b>concluídas</b>, geralmente em <b>sequência</b> (uma depois da outra).<br>"Ele <b>chegou</b>, <b>abriu</b> a porta e <b>saiu</b>."</li>
-      <li><b>Pretérito imperfeito</b> (chovia, conversavam, esperava): ações <b>em andamento</b>, que podem acontecer <b>ao mesmo tempo</b> ou formar o "pano de fundo" da cena.<br>"<b>Chovia</b> enquanto todos <b>conversavam</b>."</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h3>7. Treino do guia — com resolução</h3>
-    <details>
-      <summary>1) Em "Comprei um livro. Ele é ótimo", o pronome é anafórico ou catafórico? E em "Ouça isto: amanhã não haverá aula"?</summary>
-      <div class="answer">
-        <p>"Ele" retoma "livro", que já foi dito → <b>anafórico</b>.</p>
-        <p>"Isto" antecipa "amanhã não haverá aula", que vem depois → <b>catafórico</b>.</p>
-      </div>
-    </details>
-    <details>
-      <summary>2) Na frase "Nós estaremos lá hoje", identifique a dêixis de pessoa, de espaço e de tempo.</summary>
-      <div class="answer">
-        <ul>
-          <li>Pessoa: <b>nós</b></li>
-          <li>Espaço: <b>lá</b></li>
-          <li>Tempo: <b>hoje</b></li>
-        </ul>
-      </div>
-    </details>
-    <details>
-      <summary>3) Crie uma frase usando "este" e "aquele" para retomar dois termos já citados.</summary>
-      <div class="answer">
-        <p>Exemplo: "Estudei <u>Química</u> e <u>Português</u>; <b>este</b> foi mais fácil, <b>aquele</b> exigiu mais contas."</p>
-        <p>este = Português (o mais próximo) · aquele = Química (o mais distante)</p>
-      </div>
-    </details>
-    <details>
-      <summary>4) Reescreva em ordem direta: "Daquele livro, nunca me esqueci eu."</summary>
-      <div class="answer"><p><b>"Eu nunca me esqueci daquele livro."</b> (sujeito + verbo + complemento)</p></div>
-    </details>
-    <details>
-      <summary>5) Transforme em imperativo: "Você deve economizar água."</summary>
-      <div class="answer"><p><b>"Economize água."</b></p></div>
-    </details>
-  </section>
-</div>
-
-<!-- ======================= LITERATURA ======================= -->
-<div class="tab" id="lit">
-  <h2>Literatura</h2>
-  <p class="subtitle">Realismo e Machado de Assis</p>
-
-  <section class="card">
-    <h3>1. Contexto do Realismo</h3>
-    <ul>
-      <li>Surge na <b>segunda metade do século XIX</b>.</li>
-      <li>Época de avanço da ciência: <b>Darwin</b>, <b>positivismo</b>, <b>determinismo</b>.</li>
-      <li>Crescimento da <b>burguesia</b>.</li>
-      <li>É uma <b>reação ao Romantismo</b>: o Romantismo idealizava o amor, a mulher e a pátria; o Realismo quer mostrar a sociedade <b>"como ela é"</b>.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h3>2. Romantismo × Realismo</h3>
-    <ul>
-      <li><b>Amor</b><br>Romantismo: idealizado, perfeito.<br>Realismo: com interesses, ciúme e adultério.</li>
-      <li><b>Forma de escrever</b><br>Romantismo: subjetivo e sentimental.<br>Realismo: objetivo, com análise psicológica dos personagens.</li>
-      <li><b>Personagens</b><br>Romantismo: heróis perfeitos.<br>Realismo: pessoas comuns, com defeitos.</li>
-      <li><b>Realidade</b><br>Romantismo: fuga da realidade.<br>Realismo: retrato da vida cotidiana, com descrições detalhadas.</li>
-      <li><b>Valores</b><br>Romantismo: exaltação de valores.<br>Realismo: crítica à burguesia, ao casamento por interesse e à Igreja (<b>anticlericalismo</b>).</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h3>3. Autores</h3>
-    <h4>🇵🇹 Portugal — Eça de Queirós</h4>
-    <ul>
-      <li><b>O crime do padre Amaro</b> (1875): critica a <b>hipocrisia do clero</b>.</li>
-      <li><b>O primo Basílio</b>.</li>
-      <li>Repare nas <b>descrições minuciosas</b> de ambientes e comida, e na figura do padre preocupado com conforto e prazeres.</li>
-    </ul>
-    <h4>🇧🇷 Brasil — Machado de Assis</h4>
-    <ul>
-      <li>O marco do Realismo brasileiro é <b>Memórias póstumas de Brás Cubas</b> (1881).</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h3>4. Memórias póstumas de Brás Cubas (1881)</h3>
-    <ul>
-      <li><b>"Defunto autor"</b>: Brás Cubas conta sua vida <b>depois de morto</b>, com ironia e sem medo do julgamento dos vivos.</li>
-      <li><b>Conversa com o leitor</b>, faz <b>digressões</b> (desvia do assunto) e tem <b>capítulos curtos</b>.</li>
-      <li><b>Crítica à elite do século XIX</b>: vida ociosa, busca de fama, aparência e prestígio, casamentos por interesse.</li>
-      <li>Brás tenta ser ministro, inventar um emplasto e ficar famoso, mas <b>não realiza nada</b>.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h3>5. Dom Casmurro (1899)</h3>
-    <ul>
-      <li><b>Narrador</b>: Bento Santiago (Bentinho), já velho e solitário, em <b>1ª pessoa</b>, tentando <b>"atar as duas pontas da vida"</b> (juntar a juventude e a velhice).</li>
-      <li><b>Enredo</b>: Bentinho é prometido ao seminário pela mãe, mas ama <b>Capitu</b>, vizinha de infância. Deixa o seminário, casa-se com ela e é amigo íntimo de <b>Escobar</b>, casado com <b>Sancha</b>.</li>
-      <li><b>O ciúme</b>: Bentinho passa a desconfiar que Capitu o traiu com Escobar e que o filho, <b>Ezequiel</b>, é filho do amigo.</li>
-      <li><b>"Olhos de ressaca"</b> (cap. 123): no velório de Escobar, Capitu olha o morto com uma intensidade que Bentinho compara à <b>ressaca do mar</b> (que puxa para dentro). É quando a suspeita dele cresce e muda sua vida.</li>
-      <li><b>José Dias</b> descreve os olhos de Capitu como <b>"de cigana oblíqua e dissimulada"</b>.</li>
-    </ul>
-    <div class="box warn">
-      <b>⚠️ A ambiguidade (cai muito!)</b>
-      <p>Só ouvimos a versão de Bentinho — um narrador <b>ciumento e interessado</b>. Por isso, o livro <b>nunca prova</b> a traição. Quem julga é o leitor.</p>
-    </div>
-    <div class="box tip">
-      <b>💡 Quem é o "tu"?</b>
-      <p>O narrador às vezes fala com o <b>leitor</b> ("leitor", "tua cabeça") e às vezes com <b>Capitu</b> ("minha doce companheira", "eras tu"). Na prova, leia o trecho e veja a quem ele se dirige.</p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>6. Treino do guia — com resolução</h3>
-    <details>
-      <summary>1) Cite três diferenças entre Romantismo e Realismo.</summary>
-      <div class="answer">
-        <ul>
-          <li>Romantismo idealiza o amor; Realismo mostra o amor com interesses, ciúme e adultério.</li>
-          <li>Romantismo é subjetivo e sentimental; Realismo é objetivo e faz análise psicológica.</li>
-          <li>Romantismo tem heróis perfeitos; Realismo tem personagens comuns, com defeitos.</li>
-        </ul>
-      </div>
-    </details>
-    <details>
-      <summary>2) Que crítica Eça de Queirós faz em O crime do padre Amaro?</summary>
-      <div class="answer"><p>Critica a <b>hipocrisia do clero</b> (anticlericalismo): mostra um padre preocupado com conforto e prazeres, e não com a religião que prega.</p></div>
-    </details>
-    <details>
-      <summary>3) Por que Brás Cubas é chamado de "defunto autor"?</summary>
-      <div class="answer"><p>Porque ele narra a própria vida <b>depois de morto</b>. Por isso fala com ironia e sem medo do julgamento dos vivos.</p></div>
-    </details>
-    <details>
-      <summary>4) Explique por que não é possível ter certeza de que Capitu traiu Bentinho.</summary>
-      <div class="answer"><p>Porque a história é contada <b>só pelo ponto de vista de Bentinho</b>, um narrador em 1ª pessoa, ciumento e interessado em convencer o leitor. Não temos a versão de Capitu nem provas — por isso a obra é <b>ambígua</b>.</p></div>
-    </details>
-    <details>
-      <summary>5) O que significa a expressão "olhos de ressaca"?</summary>
-      <div class="answer"><p>É a comparação dos olhos de Capitu com a <b>ressaca do mar</b>, que puxa e arrasta para dentro. Mostra um olhar intenso e misterioso — no velório de Escobar, esse olhar aumenta a desconfiança de Bentinho.</p></div>
-    </details>
-  </section>
-</div>
-
+  <footer>
+    Baseado nas orientações pós-operatórias do Dr. Daniel G. Bisterço. Este site só organiza essas orientações e não substitui o seu médico.<br>
+    Seu progresso fica salvo neste aparelho. · <button id="reset">Apagar progresso</button>
+  </footer>
 </main>
 
-<footer>Baseado no Guia de Estudo do 4º Bimestre · Bons estudos! 📚</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-// ---------- Abas ----------
-(function () {
-  var buttons = document.querySelectorAll('nav button');
-  function open(id) {
-    document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('active', t.id === id); });
-    buttons.forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
-    window.scrollTo({ top: 0 });
-    try { localStorage.setItem('aba', id); } catch (e) {}
-  }
-  buttons.forEach(function (b) { b.addEventListener('click', function () { open(b.dataset.tab); }); });
-  try { var saved = localStorage.getItem('aba'); if (saved && document.getElementById(saved)) open(saved); } catch (e) {}
-})();
+(() => {
+  const KEY = 'primeirosPassos.v1';
+  const DAY = 864e5;
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const state = Object.assign({ surgery: '2026-11-23', days: {}, setup: {}, ice: null }, load());
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
 
-// ---------- Treino infinito de Química A ----------
-(function () {
-  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
-  function fmt(n) {
-    var r = Math.round(n * 1000) / 1000;
-    return String(r).replace('.', ',');
-  }
-  var current = null, acertos = 0, total = 0;
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2, '0');
+  const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  const parse = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+  const todayKey = () => iso(new Date());
+  const dayNumber = (key = todayKey()) => Math.round((parse(key) - parse(state.surgery)) / DAY);
+  const fmtDate = (d, opts) => d.toLocaleDateString('pt-BR', opts);
+  const addDays = (n) => { const d = parse(state.surgery); d.setDate(d.getDate() + n); return d; };
+  const check = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-  var generators = [
-    // Diluição: achar C2
-    function () {
-      var V1 = pick([20, 50, 100, 200, 250]);
-      var k = pick([2, 3, 4, 5]);
-      var V2 = V1 * k;
-      var C2 = pick([2, 3, 5, 10, 0.1, 0.2, 0.5]);
-      var C1 = C2 * k;
-      var u = C1 >= 1 && Number.isInteger(C1) && Math.random() < 0.5 ? 'g/L' : 'mol/L';
-      return {
-        text: V1 + ' mL de uma solução a ' + fmt(C1) + ' ' + u + ' foram diluídos com água até completar ' + V2 + ' mL. Qual a concentração final (em ' + u + ')?',
-        answer: C2,
-        steps: [
-          'É diluição (adicionou água) → C₁ · V₁ = C₂ · V₂',
-          'Dados: C₁ = ' + fmt(C1) + ' · V₁ = ' + V1 + ' mL · C₂ = ? · V₂ = ' + V2 + ' mL',
-          fmt(C1) + ' × ' + V1 + ' = C₂ × ' + V2,
-          fmt(C1 * V1) + ' = C₂ × ' + V2,
-          'C₂ = ' + fmt(C1 * V1) + ' ÷ ' + V2 + ' = <b>' + fmt(C2) + ' ' + u + '</b>'
-        ]
-      };
-    },
-    // Diluição: achar água adicionada
-    function () {
-      var V1 = pick([20, 40, 50, 80, 100, 150]);
-      var k = pick([2, 3, 4]);
-      var C1 = pick([0.6, 0.9, 1.2, 1.5, 2, 3, 6]);
-      var C2 = C1 / k;
-      var V2 = V1 * k;
-      return {
-        text: 'Quantos mL de água devem ser adicionados a ' + V1 + ' mL de uma solução ' + fmt(C1) + ' mol/L para que ela fique ' + fmt(C2) + ' mol/L?',
-        answer: V2 - V1,
-        steps: [
-          'É diluição → M₁ · V₁ = M₂ · V₂',
-          'Dados: M₁ = ' + fmt(C1) + ' · V₁ = ' + V1 + ' mL · M₂ = ' + fmt(C2) + ' · V₂ = ?',
-          fmt(C1) + ' × ' + V1 + ' = ' + fmt(C2) + ' × V₂',
-          fmt(C1 * V1) + ' = ' + fmt(C2) + ' × V₂',
-          'V₂ = ' + fmt(C1 * V1) + ' ÷ ' + fmt(C2) + ' = ' + V2 + ' mL (volume FINAL)',
-          '⚠️ A pergunta quer a ÁGUA: ' + V2 + ' − ' + V1 + ' = <b>' + (V2 - V1) + ' mL</b>'
-        ]
-      };
-    },
-    // "X vezes menos concentrada": volume final
-    function () {
-      var V1 = pick([10, 20, 30, 40, 50, 60]);
-      var k = pick([2, 3, 4, 5]);
-      var nomes = { 2: 'duas', 3: 'três', 4: 'quatro', 5: 'cinco' };
-      var C1 = pick([0.6, 0.9, 1.2, 1.8, 3]);
-      return {
-        text: 'Uma solução tem ' + fmt(C1) + ' mol/L. Partindo de ' + V1 + ' mL, quero uma versão ' + nomes[k] + ' vezes menos concentrada. Qual deve ser o volume final (em mL)?',
-        answer: V1 * k,
-        steps: [
-          '"' + nomes[k] + ' vezes menos concentrada" → M₂ = ' + fmt(C1) + ' ÷ ' + k + ' = ' + fmt(C1 / k) + ' mol/L',
-          fmt(C1) + ' × ' + V1 + ' = ' + fmt(C1 / k) + ' × V₂',
-          'V₂ = ' + fmt(C1 * V1) + ' ÷ ' + fmt(C1 / k) + ' = <b>' + (V1 * k) + ' mL</b>',
-          'Atalho: concentração ' + k + 'x menor → volume ' + k + 'x maior → ' + V1 + ' × ' + k + ' = ' + (V1 * k) + ' mL'
-        ]
-      };
-    },
-    // Mistura de mesmo soluto
-    function () {
-      var pares = [[100, 400], [200, 300], [300, 200], [100, 100], [200, 200], [400, 100], [250, 250], [150, 350]];
-      var p = pick(pares), V1 = p[0], V2 = p[1];
-      var C1 = pick([0.5, 1, 1.5, 2, 3]);
-      var C2 = pick([0.5, 1, 2, 2.5, 4]);
-      if (C1 === C2) C2 = C1 + 1;
-      var n1 = C1 * V1 / 1000, n2 = C2 * V2 / 1000, Vt = (V1 + V2) / 1000;
-      var Cf = (n1 + n2) / Vt;
-      var s = pick(['NaCl', 'HCl', 'NaOH', 'KOH']);
-      return {
-        text: 'Misturam-se ' + V1 + ' mL de ' + s + ' ' + fmt(C1) + ' mol/L com ' + V2 + ' mL de ' + s + ' ' + fmt(C2) + ' mol/L. Qual a concentração final (em mol/L)?',
-        answer: Cf,
-        steps: [
-          'Mesmo soluto → soma os mols e soma os volumes',
-          '1ª: ' + fmt(C1) + ' × ' + fmt(V1 / 1000) + ' L = ' + fmt(n1) + ' mol',
-          '2ª: ' + fmt(C2) + ' × ' + fmt(V2 / 1000) + ' L = ' + fmt(n2) + ' mol',
-          'Total: ' + fmt(n1 + n2) + ' mol em ' + (V1 + V2) + ' mL = ' + fmt(Vt) + ' L',
-          fmt(n1 + n2) + ' ÷ ' + fmt(Vt) + ' = <b>' + fmt(Cf) + ' mol/L</b>'
-        ]
-      };
-    },
-    // Mistura de solutos diferentes
-    function () {
-      var pares = [[200, 300], [100, 400], [250, 250], [300, 200], [1000, 1000], [400, 600]];
-      var p = pick(pares), V1 = p[0], V2 = p[1], Vt = V1 + V2;
-      var C1 = pick([10, 20, 30, 40, 50]);
-      var Cf = C1 * V1 / Vt;
-      var C2 = pick([4, 5, 10, 20]);
-      return {
-        text: 'Misturam-se ' + V1 + ' mL de glicose ' + C1 + ' g/L com ' + V2 + ' mL de sal ' + C2 + ' g/L. Qual a concentração final da GLICOSE (em g/L)?',
-        answer: Cf,
-        steps: [
-          'Solutos diferentes → cada um separado, dividido pelo volume total',
-          'Volume total = ' + V1 + ' + ' + V2 + ' = ' + Vt + ' mL',
-          'Glicose: ' + C1 + ' × ' + V1 + ' ÷ ' + Vt + ' = <b>' + fmt(Cf) + ' g/L</b>',
-          '(Se pedissem o sal: ' + C2 + ' × ' + V2 + ' ÷ ' + Vt + ' = ' + fmt(C2 * V2 / Vt) + ' g/L)'
-        ]
-      };
-    },
-    // Concentração comum básica
-    function () {
-      var V = pick([100, 200, 250, 500, 400]);
-      var C = pick([4, 5, 8, 10, 20, 40]);
-      var m = C * V / 1000;
-      return {
-        text: 'Dissolvem-se ' + fmt(m) + ' g de um sal em água, formando ' + V + ' mL de solução. Qual a concentração comum (em g/L)?',
-        answer: C,
-        steps: [
-          'Uma solução só, com massa → C = m ÷ V (volume em LITROS!)',
-          V + ' mL = ' + fmt(V / 1000) + ' L',
-          'C = ' + fmt(m) + ' ÷ ' + fmt(V / 1000) + ' = <b>' + C + ' g/L</b>'
-        ]
-      };
-    }
+  /* ---------- Dados das orientações ---------- */
+  const MILESTONES = [
+    { day: 0,  t: 'Cirurgia feita', s: 'O primeiro passo já foi dado.' },
+    { day: 14, t: 'Retorno com o médico', s: 'Consulta de 2 semanas.' },
+    { day: 15, t: 'Fim da meia elástica e do limite de 90°', s: 'Siga o que o médico e a fisio orientarem.' },
+    { day: 21, t: 'Começa o apoio de 40%', s: 'Ainda com muletas.' },
+    { day: 60, t: 'Liberado para agachar', s: 'Fim das restrições de 2 meses.' },
+  ];
+  const GOAL = 60;
+
+  const isSetupDone = id => !!state.setup[id];
+
+  const dailyTasks = (n) => [
+    { id: 'curativo', t: 'Curativo do dia', d: 'Lavar com água corrente e sabão neutro. Manter a ferida fechada com curativo.' },
+    { id: 'fisio', t: 'Exercícios da fisioterapia', d: 'Ativação muscular e isometria estão liberadas.' },
+    { id: 'pe', t: 'Mobilizar pé e tornozelo', d: 'Movimentos ativos ao longo do dia.' },
+    { id: 'elevado', t: 'Perna elevada durante o dia', d: 'Mantenha o membro operado elevado.' },
+    n < 15 && { id: 'meia', t: 'Meia elástica 3/4', d: 'Média compressão durante o dia. Pode dormir sem ela.', tag: 'até dia 14' },
+    n < 21
+      ? { id: 'muletas', t: 'Sem apoiar a perna operada', d: 'Só com muletas (canadense ou axilar).', tag: 'até dia 20' }
+      : { id: 'muletas', t: 'Apoio de 40% com muletas', d: 'Apoio parcial da perna operada, sempre com muletas.' },
+    n < 15 && { id: 'flexao', t: 'Flexão do joelho até 90°', d: 'Não passar de 90° nos primeiros 15 dias.', tag: 'até dia 14' },
+    !isSetupDone('fuiRetorno') && { id: 'banho', t: 'Banho sentado', d: 'Até a consulta de retorno.' },
+  ].filter(Boolean);
+
+  const SETUP = [
+    { id: 'muletas', t: 'Pegar as muletas', d: 'Canadense ou axilar.' },
+    { id: 'meia', t: 'Conseguir a meia elástica', d: 'Compressiva 3/4, média compressão.' },
+    { id: 'gelo', t: 'Deixar bolsas de gelo prontas', d: 'Para 4 a 6 compressas por dia.' },
+    { id: 'fisio', t: 'Começar a fisioterapia', d: 'Iniciar imediatamente.' },
+    { id: 'agendar', t: 'Agendar o retorno', d: 'Em 2 semanas, com o Dr. Daniel.' },
+    { id: 'contato', t: 'Salvar o contato do médico', d: '(14) 99789-1250' },
+    { id: 'fuiRetorno', t: 'Ir à consulta de retorno', d: 'Vitória das 2 semanas!' },
   ];
 
-  var elP = document.getElementById('tr-problem'),
-      elI = document.getElementById('tr-input'),
-      elF = document.getElementById('tr-feedback'),
-      elS = document.getElementById('tr-solution'),
-      elSc = document.getElementById('tr-score');
+  const RULES = (n) => [
+    { ic: '🦵', t: n < 21 ? 'Não apoiar a perna operada' : 'Apoio de 40% liberado', s: n < 21 ? `Por 3 semanas. Faltam ${21-n} dia${21-n===1?'':'s'}.` : 'Sempre com muletas.', on: true },
+    { ic: '📐', t: 'Flexão do joelho até 90°', s: n < 15 ? `Nos primeiros 15 dias. Faltam ${15-n} dia${15-n===1?'':'s'}.` : 'Período de 15 dias concluído ✓', on: n < 15 },
+    { ic: '🚫', t: 'Não agachar', s: n < GOAL ? `Por 2 meses. Faltam ${GOAL-n} dia${GOAL-n===1?'':'s'}.` : 'Período de 2 meses concluído ✓', on: n < GOAL },
+    { ic: '🧦', t: 'Meia elástica durante o dia', s: n < 15 ? 'Nos primeiros 15 dias, para evitar inchaço.' : 'Período de 15 dias concluído ✓', on: n < 15 },
+    { ic: '💜', t: 'Hematomas são comuns', s: 'É normal aparecerem nos dias seguintes à cirurgia.', on: true },
+  ];
 
-  function novo() {
-    current = pick(generators)();
-    elP.textContent = current.text;
-    elI.value = '';
-    elF.textContent = ''; elF.className = 'feedback';
-    elS.className = 'solution box ex';
-    elS.innerHTML = '<b>Resolução</b><ol>' + current.steps.map(function (s) { return '<li class="calc">' + s + '</li>'; }).join('') + '</ol>';
+  const MOTTOS = [
+    'Cada passo marcado aqui é uma vitória.',
+    'Devagar também é avançar.',
+    'Hoje você está mais perto do que ontem.',
+    'Disciplina hoje, liberdade amanhã.',
+    'O joelho cura, você conduz.',
+    'Pequenas vitórias constroem a grande.',
+  ];
+
+  /* ---------- Estado do dia ---------- */
+  const dayState = (key = todayKey()) => (state.days[key] ||= { done: {}, ice: 0 });
+  const dayScore = (key) => {
+    const ds = state.days[key]; if (!ds) return null;
+    const tasks = dailyTasks(dayNumber(key));
+    const total = tasks.length + 1;
+    const done = tasks.filter(t => ds.done[t.id]).length + (ds.ice >= 4 ? 1 : 0);
+    return { done, total };
+  };
+
+  /* ---------- Render ---------- */
+  function renderHero() {
+    const n = dayNumber();
+    $('dayNum').textContent = Math.max(n, 0);
+    $('dayOf').textContent = n < 0 ? 'a cirurgia ainda não aconteceu' : n === 0 ? '· dia da cirurgia' : 'da recuperação';
+    $('motto').textContent = 'Reconstrução ligamentar e reparo meniscal. ' + MOTTOS[Math.abs(n) % MOTTOS.length];
+    $('surgery').value = state.surgery;
   }
-  function conferir() {
-    var v = parseFloat(elI.value.replace(',', '.').replace(/[^\d.\-]/g, ''));
-    if (isNaN(v)) { elF.textContent = 'Digite um número.'; elF.className = 'feedback no'; return; }
-    total++;
-    if (Math.abs(v - current.answer) < 0.011 * Math.max(1, Math.abs(current.answer))) {
-      acertos++;
-      elF.textContent = '✅ Acertou! Resposta: ' + fmt(current.answer);
-      elF.className = 'feedback ok';
-    } else {
-      elF.textContent = '❌ Ainda não. Tente de novo ou veja a resolução.';
-      elF.className = 'feedback no';
+
+  function renderJourney() {
+    const n = Math.max(0, dayNumber());
+    const p = Math.min(1, n / GOAL);
+    $('trackFill').style.width = (p * 100) + '%';
+    $('runner').style.left = (p * 100) + '%';
+    $('runner').textContent = p >= 1 ? '🏆' : '🏃';
+    $('journeyPct').textContent = Math.round(p * 100) + '%';
+    $('journeySub').textContent = n >= GOAL ? 'Jornada de 2 meses concluída. Que orgulho!' : `Faltam ${GOAL - n} dias para a liberação de agachar`;
+    const track = $('track');
+    track.querySelectorAll('.flag').forEach(f => f.remove());
+    let nextMarked = false;
+    $('milestones').innerHTML = MILESTONES.map(m => {
+      const done = n >= m.day;
+      let cls = done ? 'done' : '';
+      if (!done && !nextMarked) { cls = 'next'; nextMarked = true; }
+      const flag = document.createElement('span');
+      flag.className = 'flag' + (done ? ' done' : '');
+      flag.style.left = (m.day / GOAL * 100) + '%';
+      track.appendChild(flag);
+      const when = fmtDate(addDays(m.day), { day: '2-digit', month: 'short' });
+      const left = done ? '✓ ' + when : (cls === 'next' ? `em ${m.day - n}d` : when);
+      return `<li class="${cls}"><div class="m-day">Dia ${m.day}</div><div class="m-txt">${done ? '🏅 ' : ''}${m.t}<small>${m.s} · ${left}</small></div></li>`;
+    }).join('');
+  }
+
+  function itemHTML(t, on) {
+    return `<li><button class="item" data-id="${t.id}" aria-pressed="${!!on}">
+      <span class="box">${check}</span>
+      <span><span class="t">${t.t}</span>${t.tag ? `<span class="tag">${t.tag}</span>` : ''}<div class="d">${t.d}</div></span>
+    </button></li>`;
+  }
+
+  function renderToday() {
+    const n = dayNumber();
+    const ds = dayState();
+    const tasks = dailyTasks(n);
+    $('todayDate').textContent = fmtDate(new Date(), { weekday: 'long', day: 'numeric', month: 'long' });
+    $('daily').innerHTML = tasks.map(t => itemHTML(t, ds.done[t.id])).join('');
+    renderIce();
+    renderRing();
+    renderWeek();
+  }
+
+  function renderRing() {
+    const { done, total } = dayScore(todayKey());
+    const C = 226.2;
+    $('ringFg').style.strokeDashoffset = C * (1 - done / total);
+    $('ringLbl').textContent = `${done}/${total}`;
+    $('streak').innerHTML = streakText();
+  }
+
+  function streakText() {
+    let s = 0;
+    const d = new Date();
+    const sc0 = dayScore(iso(d));
+    if (!(sc0 && sc0.done === sc0.total)) d.setDate(d.getDate() - 1);
+    for (;;) {
+      const sc = dayScore(iso(d));
+      if (!sc || sc.done < sc.total) break;
+      s++; d.setDate(d.getDate() - 1);
     }
-    elSc.textContent = 'Acertos: ' + acertos + ' de ' + total + ' tentativas';
+    const daysAll = Object.keys(state.days).filter(k => { const sc = dayScore(k); return sc && sc.done === sc.total; }).length;
+    if (s === 0) return 'Complete todas as missões para começar sua sequência 🔥';
+    return `🔥 <b>${s} dia${s>1?'s':''}</b> seguidos de missão completa · ${daysAll} no total`;
   }
-  document.getElementById('tr-new').addEventListener('click', novo);
-  document.getElementById('tr-check').addEventListener('click', conferir);
-  document.getElementById('tr-show').addEventListener('click', function () { elS.classList.add('show'); });
-  elI.addEventListener('keydown', function (e) { if (e.key === 'Enter') conferir(); });
-  novo();
+
+  function renderWeek() {
+    const out = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const k = iso(d);
+      const sc = dayScore(k);
+      const cls = sc ? (sc.done === sc.total ? 'full' : sc.done > 0 ? 'part' : '') : '';
+      const label = fmtDate(d, { weekday: 'short' }).replace('.', '');
+      out.push(`<div class="wd">${label}<div class="dot ${cls} ${i===0?'today':''}" title="${sc ? sc.done+'/'+sc.total : 'sem registro'}">${cls==='full'?'★':''}</div></div>`);
+    }
+    $('week').innerHTML = out.join('');
+  }
+
+  function renderSetup() {
+    $('setup').innerHTML = SETUP.map(t => itemHTML(t, state.setup[t.id])).join('');
+    const c = SETUP.filter(t => state.setup[t.id]).length;
+    $('setupCount').textContent = `${c} de ${SETUP.length} feitos.`;
+  }
+
+  function renderRules() {
+    const n = Math.max(0, dayNumber());
+    $('rules').innerHTML = RULES(n).map(r => `<div class="rule ${r.on ? '' : 'off'}"><div class="ic">${r.ic}</div><div><b>${r.t}</b><span>${r.s}</span></div></div>`).join('');
+  }
+
+  /* ---------- Gelo ---------- */
+  const ICE_ON = 20 * 60e3, ICE_REST = 40 * 60e3;
+  let tick = null;
+  function renderIce() {
+    const ds = dayState();
+    $('iceCount').textContent = `${ds.ice}/4${ds.ice >= 4 ? ' ✓' : ''}`;
+    $('drops').innerHTML = Array.from({ length: 6 }, (_, i) =>
+      `<button class="drop ${i < ds.ice ? 'on' : ''}" data-i="${i}" aria-label="Sessão ${i+1}${i<ds.ice?' feita':''}">${i < ds.ice ? '🧊' : i < 4 ? '' : '+'}</button>`).join('');
+    updateTimer();
+  }
+  function updateTimer() {
+    const btn = $('iceBtn'), tm = $('iceTimer'), msg = $('iceMsg');
+    const ice = state.ice;
+    const now = Date.now();
+    clearTimeout(tick);
+    if (ice && now < ice.start + ICE_ON) {
+      const left = ice.start + ICE_ON - now;
+      tm.hidden = false; tm.textContent = mmss(left);
+      msg.textContent = 'Gelo em andamento. Relaxe e mantenha a perna elevada.';
+      btn.textContent = 'Terminar agora'; btn.disabled = false; btn.dataset.mode = 'stop';
+      tick = setTimeout(updateTimer, 1000);
+    } else if (ice && !ice.counted) {
+      finishIce(ice.start + ICE_ON);
+    } else if (ice && now < ice.end + ICE_REST) {
+      const left = ice.end + ICE_REST - now;
+      tm.hidden = false; tm.textContent = mmss(left);
+      const at = new Date(ice.end + ICE_REST).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      msg.textContent = `Intervalo. Próxima compressa liberada às ${at}.`;
+      btn.textContent = 'Começar compressa'; btn.disabled = true; btn.dataset.mode = 'start';
+      tick = setTimeout(updateTimer, 1000);
+    } else {
+      tm.hidden = true;
+      const done = dayState().ice;
+      msg.textContent = done >= 6 ? 'Máximo de 6 sessões hoje concluído. Excelente!' : 'Toque para iniciar o cronômetro de 20 min.';
+      btn.textContent = 'Começar compressa'; btn.disabled = done >= 6; btn.dataset.mode = 'start';
+    }
+  }
+  function finishIce(endTs) {
+    const ice = state.ice;
+    ice.counted = true; ice.end = Math.min(endTs, Date.now());
+    const ds = state.days[ice.day] ||= { done: {}, ice: 0 };
+    ds.ice = Math.min(6, ds.ice + 1);
+    save();
+    if (ice.day === todayKey()) { renderIce(); renderRing(); renderWeek(); celebrateIf(ds.ice === 4 ? 'Meta de gelo do dia batida! 🧊' : 'Compressa concluída 🧊'); }
+    notify('Compressa de gelo concluída', 'Hora de tirar o gelo. Próxima em 40 min.');
+  }
+  const mmss = ms => { const s = Math.ceil(ms / 1000); return `${pad(Math.floor(s/60))}:${pad(s%60)}`; };
+  function notify(title, body) {
+    try { if ('Notification' in window && Notification.permission === 'granted') new Notification(title, { body }); } catch {}
+    try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch {}
+  }
+
+  $('iceBtn').addEventListener('click', () => {
+    if ($('iceBtn').dataset.mode === 'stop') { finishIce(Date.now()); return; }
+    try { if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission(); } catch {}
+    state.ice = { start: Date.now(), day: todayKey(), counted: false };
+    save(); updateTimer();
+  });
+  $('drops').addEventListener('click', e => {
+    const b = e.target.closest('.drop'); if (!b) return;
+    const ds = dayState(); const i = +b.dataset.i;
+    ds.ice = i < ds.ice ? i : i + 1;
+    save(); renderIce(); renderRing(); renderWeek();
+    if (ds.ice === 4) celebrateIf('Meta de gelo do dia batida! 🧊');
+  });
+
+  /* ---------- Interações ---------- */
+  const CHEERS = ['Mandou bem! ✨', 'Mais um passo! 💪', 'Isso aí! 🙌', 'Vitória marcada ✅', 'Seguindo firme! 🚀'];
+  $('daily').addEventListener('click', e => {
+    const b = e.target.closest('.item'); if (!b) return;
+    const ds = dayState(); const id = b.dataset.id;
+    ds.done[id] = !ds.done[id];
+    b.setAttribute('aria-pressed', ds.done[id]);
+    save(); renderRing(); renderWeek();
+    if (ds.done[id]) celebrateIf(CHEERS[Math.floor(Math.random() * CHEERS.length)]);
+  });
+  $('setup').addEventListener('click', e => {
+    const b = e.target.closest('.item'); if (!b) return;
+    const id = b.dataset.id;
+    state.setup[id] = !state.setup[id];
+    save(); renderSetup();
+    if (id === 'fuiRetorno') renderToday();
+    if (state.setup[id]) {
+      if (SETUP.every(t => state.setup[t.id])) { toast('Todos os preparativos feitos! 🏆'); confetti(); }
+      else toast(id === 'fuiRetorno' ? 'Retorno feito! Duas semanas vencidas 🏅' : 'Preparativo concluído ✅');
+    }
+  });
+  $('surgery').addEventListener('change', e => {
+    if (!e.target.value) return;
+    state.surgery = e.target.value; save(); renderAll();
+  });
+  $('reset').addEventListener('click', () => {
+    if (!confirm('Apagar todo o progresso salvo neste aparelho?')) return;
+    state.days = {}; state.setup = {}; state.ice = null; save(); renderAll();
+  });
+
+  function celebrateIf(msg) {
+    const { done, total } = dayScore(todayKey());
+    if (done === total) { toast('Missões de hoje completas! Dia vencido 🏆'); confetti(); }
+    else toast(msg);
+  }
+
+  let toastT;
+  function toast(msg) {
+    const t = $('toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function confetti() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c = $('confetti'), x = c.getContext('2d');
+    const W = c.width = innerWidth * devicePixelRatio, H = c.height = innerHeight * devicePixelRatio;
+    c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+    const colors = ['#E8B65A', '#1F6B63', '#5CC98A', '#F3C66E', '#8FD3C6', '#C8902E'];
+    const ps = Array.from({ length: 140 }, () => ({
+      x: W / 2, y: H * .35, vx: (Math.random() - .5) * 22 * devicePixelRatio, vy: (-Math.random() * 18 - 6) * devicePixelRatio,
+      r: (4 + Math.random() * 5) * devicePixelRatio, c: colors[Math.floor(Math.random() * colors.length)], a: Math.random() * 6, s: (Math.random() - .5) * .4,
+    }));
+    let f = 0;
+    (function frame() {
+      x.clearRect(0, 0, W, H);
+      ps.forEach(p => { p.vy += .55 * devicePixelRatio; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.a += p.s;
+        x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.fillRect(-p.r, -p.r / 2, p.r * 2, p.r); x.restore(); });
+      if (++f < 150) requestAnimationFrame(frame); else x.clearRect(0, 0, W, H);
+    })();
+  }
+
+  function renderAll() { renderHero(); renderJourney(); renderToday(); renderSetup(); renderRules(); }
+  renderAll();
+
+  // Vira o dia automaticamente se o site ficar aberto
+  let lastKey = todayKey();
+  setInterval(() => { if (todayKey() !== lastKey) { lastKey = todayKey(); renderAll(); } }, 60e3);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) { lastKey = todayKey(); renderAll(); } });
 })();
 </script>
 </body>
