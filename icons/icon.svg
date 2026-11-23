@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="116" fill="url(#g)"/><rect width="512" height="512" rx="116" fill="url(#glow)"/>
+  
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F3D3A"/><stop offset=".6" stop-color="#1F6B63"/><stop offset="1" stop-color="#2D7F6F"/></linearGradient>
+    <linearGradient id="au" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6D58A"/><stop offset="1" stop-color="#C8902E"/></linearGradient>
+    <radialGradient id="glow" cx=".78" cy=".2" r=".55"><stop offset="0" stop-color="#E8B65A" stop-opacity=".45"/><stop offset="1" stop-color="#E8B65A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g transform="translate(256 256) scale(1) translate(-256 -256)">
+    <rect x="104" y="318" width="84" height="92" rx="16" fill="url(#au)" opacity=".7"/>
+    <rect x="214" y="246" width="84" height="164" rx="16" fill="url(#au)" opacity=".85"/>
+    <rect x="324" y="174" width="84" height="236" rx="16" fill="url(#au)"/>
+    <path d="M366 70l15 31 34 5-25 24 6 34-30-16-30 16 6-34-25-24 34-5z" fill="#FFF4D6"/>
+    <path d="M130 280 C 190 230, 250 190, 330 140" stroke="#FFF4D6" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="2 22" opacity=".9"/>
+  </g></svg>
