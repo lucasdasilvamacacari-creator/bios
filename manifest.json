@@ -1,0 +1,27 @@
+{
+  "id": "./index.html",
+  "name": "Primeiros Passos",
+  "short_name": "Primeiros Passos",
+  "description": "Checklist do pós-operatório de reconstrução ligamentar e reparo meniscal, com as orientações do Dr. Daniel G. Bisterço.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#0F3D3A",
+  "theme_color": "#0F3D3A",
+  "categories": ["health", "medical", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "screenshots/inicio.png", "sizes": "780x1688", "type": "image/png", "form_factor": "narrow", "label": "Sua jornada de recuperação" },
+    { "src": "screenshots/missoes.png", "sizes": "780x1688", "type": "image/png", "form_factor": "narrow", "label": "Missões do dia" },
+    { "src": "screenshots/largo.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide", "label": "Primeiros Passos no computador" }
+  ]
+}

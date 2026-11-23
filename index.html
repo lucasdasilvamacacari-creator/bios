@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Primeiros Passos</title>
+<meta name="description" content="Checklist de recuperação pós-operatória do joelho: reconstrução ligamentar e reparo meniscal.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0F3D3A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Primeiros Passos">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="application-name" content="Primeiros Passos">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F3EC;
+    --bg-2: #EFE9DC;
+    --card: #FFFDF8;
+    --line: #E6DFCF;
+    --text: #1C2B29;
+    --muted: #5E6B68;
+    --brand: #0F3D3A;
+    --brand-2: #1F6B63;
+    --gold: #C8902E;
+    --gold-soft: #F6E7C8;
+    --ok: #2E8B57;
+    --ok-soft: #E2F2E8;
+    --warn: #B5542C;
+    --warn-soft: #FBE9DF;
+    --shadow: 0 1px 2px rgba(15,61,58,.06), 0 8px 24px rgba(15,61,58,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0C1716; --bg-2: #10201E; --card: #142725; --line: #21403C;
+      --text: #ECF2EF; --muted: #9DB2AD; --brand: #8FD3C6; --brand-2: #5FB8A8;
+      --gold: #E8B65A; --gold-soft: #3A2E17; --ok: #5CC98A; --ok-soft: #173426;
+      --warn: #F0946A; --warn-soft: #3A2117; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0C1716; --bg-2: #10201E; --card: #142725; --line: #21403C;
+    --text: #ECF2EF; --muted: #9DB2AD; --brand: #8FD3C6; --brand-2: #5FB8A8;
+    --gold: #E8B65A; --gold-soft: #3A2E17; --ok: #5CC98A; --ok-soft: #173426;
+    --warn: #F0946A; --warn-soft: #3A2117; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px 48px; }
+  h1, h2, .serif { font-family: Fraunces, Georgia, serif; letter-spacing: -.01em; }
+  button { font: inherit; color: inherit; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, #0F3D3A 0%, #1F6B63 60%, #2D7F6F 100%);
+    color: #F6F3EC; padding: 28px 0 72px; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px;
+    border-radius: 50%; background: radial-gradient(circle, rgba(232,182,90,.35), transparent 70%);
+  }
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 0; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; opacity: .8; }
+  .hero h1 { font-size: clamp(34px, 8vw, 48px); line-height: 1.05; margin: 8px 0 6px; }
+  .hero p { margin: 0; opacity: .88; max-width: 46ch; }
+  .day-pill {
+    display: inline-flex; align-items: baseline; gap: 8px; margin-top: 18px;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+    padding: 8px 14px; border-radius: 999px; font-weight: 600;
+  }
+  .day-pill b { font-family: Fraunces, Georgia, serif; font-size: 22px; color: #F3C66E; }
+  .date-row { margin-top: 12px; font-size: 13px; opacity: .85; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .date-row input {
+    background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px; padding: 4px 8px; font: inherit; color-scheme: dark;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 18px; box-shadow: var(--shadow); margin-top: 16px;
+  }
+  .lift { margin-top: -52px; position: relative; z-index: 2; }
+  .card h2 { font-size: 22px; margin: 0 0 4px; }
+  .card .sub { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+
+  /* Journey */
+  .journey-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .journey-top .pct { font-family: Fraunces, Georgia, serif; font-size: 28px; color: var(--gold); font-weight: 700; }
+  .track { position: relative; height: 10px; background: var(--bg-2); border-radius: 99px; margin: 26px 4px 8px; }
+  .track .fill { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, var(--brand-2), var(--gold)); border-radius: 99px; transition: width .8s cubic-bezier(.2,.8,.2,1); }
+  .flag {
+    position: absolute; top: 50%; transform: translate(-50%,-50%); width: 18px; height: 18px; border-radius: 50%;
+    background: var(--card); border: 3px solid var(--line);
+  }
+  .flag.done { border-color: var(--gold); background: var(--gold); }
+  .runner { position: absolute; top: -26px; transform: translateX(-50%); font-size: 20px; transition: left .8s cubic-bezier(.2,.8,.2,1); }
+  .milestones { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+  .milestones li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
+  .milestones li.done { background: var(--gold-soft); border-color: transparent; }
+  .milestones li.next { border-color: var(--brand-2); }
+  .milestones .m-day { flex: 0 0 auto; min-width: 58px; font-weight: 700; color: var(--brand-2); font-size: 14px; }
+  .milestones li.done .m-day { color: var(--gold); }
+  .milestones .m-txt { font-size: 14.5px; }
+  .milestones .m-txt small { display: block; color: var(--muted); font-size: 12.5px; }
+
+  /* Today */
+  .today-head { display: flex; gap: 16px; align-items: center; }
+  .ring { flex: 0 0 auto; width: 84px; height: 84px; position: relative; }
+  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring .bg { stroke: var(--bg-2); }
+  .ring .fg { stroke: var(--ok); stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 700; font-size: 18px; }
+  .streak { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .streak b { color: var(--gold); }
+
+  .list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  .item {
+    display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+    cursor: pointer; transition: background .2s, border-color .2s, transform .1s;
+  }
+  .item:active { transform: scale(.99); }
+  .item:focus-visible { outline: 3px solid var(--brand-2); outline-offset: 2px; }
+  .box {
+    flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--brand-2);
+    display: grid; place-items: center; margin-top: 1px; transition: all .2s;
+  }
+  .box svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 3; fill: none; opacity: 0; transform: scale(.4); transition: all .25s cubic-bezier(.3,1.6,.5,1); }
+  .item[aria-pressed="true"] { background: var(--ok-soft); border-color: transparent; }
+  .item[aria-pressed="true"] .box { background: var(--ok); border-color: var(--ok); }
+  .item[aria-pressed="true"] .box svg { opacity: 1; transform: scale(1); }
+  .item[aria-pressed="true"] .t { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--ok) 60%, transparent); }
+  .t { font-weight: 600; font-size: 15px; }
+  .d { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--gold-soft); color: var(--gold); margin-left: 6px; vertical-align: 2px; }
+
+  /* Ice */
+  .ice { margin-top: 14px; padding: 14px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
+  .ice-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .drops { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
+  .drop {
+    width: 40px; height: 40px; border-radius: 12px; border: 2px dashed var(--line); background: var(--card);
+    display: grid; place-items: center; font-size: 18px; cursor: pointer;
+  }
+  .drop.on { border: 2px solid #4A9FD8; background: color-mix(in srgb, #4A9FD8 18%, var(--card)); }
+  .drop.min::after { content: ""; }
+  .timer { font-variant-numeric: tabular-nums; font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 700; }
+  .timer-msg { font-size: 13px; color: var(--muted); }
+  .btn {
+    border: 0; border-radius: 12px; padding: 10px 16px; font-weight: 600; cursor: pointer;
+    background: var(--brand); color: var(--bg);
+  }
+  .btn.ghost { background: transparent; color: var(--brand-2); border: 1px solid var(--line); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* Week */
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 12px; }
+  .wd { text-align: center; font-size: 11px; color: var(--muted); }
+  .wd .dot { width: 100%; aspect-ratio: 1; max-width: 40px; margin: 4px auto 0; border-radius: 10px; background: var(--bg-2); display: grid; place-items: center; font-size: 15px; }
+  .wd .dot.full { background: var(--gold); color: #fff; }
+  .wd .dot.part { background: color-mix(in srgb, var(--ok) 35%, var(--bg-2)); }
+  .wd .dot.today { outline: 2px solid var(--brand-2); outline-offset: 2px; }
+
+  /* Rules */
+  .rules { display: grid; gap: 10px; margin-top: 12px; }
+  .rule { display: flex; gap: 12px; padding: 12px 14px; border-radius: 14px; background: var(--warn-soft); }
+  .rule.off { background: var(--bg); opacity: .65; }
+  .rule .ic { font-size: 20px; line-height: 1.2; }
+  .rule b { display: block; font-size: 14.5px; }
+  .rule span { font-size: 13px; color: var(--muted); }
+
+  .contact a { color: var(--brand-2); font-weight: 600; text-decoration: none; }
+  .contact p { margin: 6px 0; font-size: 14.5px; }
+  .alert { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: var(--warn-soft); font-size: 14px; }
+
+  .install { display: flex; align-items: center; gap: 14px; position: relative; padding-right: 40px; flex-wrap: wrap; }
+  .install img { border-radius: 14px; flex: 0 0 auto; }
+  .install-txt { flex: 1 1 160px; }
+  .install h2 { font-size: 19px; }
+  .install .sub { margin: 0; }
+  .install .x { position: absolute; top: 8px; right: 10px; background: none; border: 0; font-size: 22px; color: var(--muted); cursor: pointer; line-height: 1; padding: 4px; }
+  .install:not([hidden]) + #journeyCard { margin-top: 16px; }
+  .ios-steps { margin: 6px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); }
+  @media (display-mode: standalone) { .hero { padding-top: calc(28px + env(safe-area-inset-top)); } }
+  .btn.small { padding: 6px 12px; font-size: 13px; margin-top: 8px; }
+  .past-note { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: var(--gold-soft); font-size: 13.5px; }
+  .save-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  #saveStatus.ok { color: var(--ok); }
+  #saveStatus.err { color: var(--warn); font-weight: 600; }
+  .wd { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; }
+  .wd .dot.sel { outline: 3px solid var(--gold); outline-offset: 2px; }
+  footer { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 28px; }
+  footer button { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font-size: 12.5px; }
+
+  /* Toast + confetti */
+  .toast {
+    position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translate(-50%, calc(100% + 40px)); opacity: 0;
+    background: var(--brand); color: var(--bg); padding: 12px 18px; border-radius: 14px; font-weight: 600;
+    box-shadow: var(--shadow); transition: transform .4s cubic-bezier(.2,.9,.3,1.2); z-index: 50; max-width: calc(100% - 32px); text-align: center;
+  }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; }
+  #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 40; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Recuperação do joelho</div>
+    <h1>Primeiros Passos</h1>
+    <p id="motto">Pós-operatório de reconstrução ligamentar e reparo meniscal. Cada passo marcado aqui é uma vitória.</p>
+    <div class="day-pill"><span>Dia</span><b id="dayNum">0</b><span id="dayOf">da recuperação</span></div>
+    <div class="date-row">
+      <label for="surgery">Data da cirurgia:</label>
+      <input type="date" id="surgery">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- Instalar -->
+  <section class="card lift install" id="installCard" hidden aria-labelledby="h-install">
+    <img src="icons/icon-192.png" alt="" width="56" height="56">
+    <div class="install-txt">
+      <h2 id="h-install">Instale o app</h2>
+      <p class="sub" id="installHint">Abra direto da tela inicial, mesmo sem internet.</p>
+    </div>
+    <button class="btn" id="installBtn">Instalar</button>
+    <button class="x" id="installClose" aria-label="Fechar">×</button>
+  </section>
+
+  <!-- Jornada -->
+  <section class="card lift" id="journeyCard" aria-labelledby="h-journey">
+    <div class="journey-top">
+      <div>
+        <h2 id="h-journey">Sua jornada</h2>
+        <p class="sub" id="journeySub">Até a liberação para agachar (2 meses)</p>
+      </div>
+      <div class="pct" id="journeyPct">0%</div>
+    </div>
+    <div class="track" id="track"><div class="fill" id="trackFill"></div><span class="runner" id="runner" aria-hidden="true">🏃</span></div>
+    <ul class="milestones" id="milestones"></ul>
+  </section>
+
+  <!-- Hoje -->
+  <section class="card" aria-labelledby="h-today">
+    <div class="today-head">
+      <div class="ring" aria-hidden="true">
+        <svg viewBox="0 0 84 84"><circle class="bg" cx="42" cy="42" r="36" fill="none" stroke-width="9"/><circle class="fg" id="ringFg" cx="42" cy="42" r="36" fill="none" stroke-width="9" stroke-dasharray="226.2" stroke-dashoffset="226.2"/></svg>
+        <div class="lbl" id="ringLbl">0/0</div>
+      </div>
+      <div>
+        <h2 id="h-today">Missões de hoje</h2>
+        <div class="sub" id="todayDate" style="margin:0"></div>
+        <div class="streak" id="streak"></div>
+        <button class="btn ghost small" id="backToday" hidden>← Voltar para hoje</button>
+      </div>
+    </div>
+    <div class="past-note" id="pastNote" hidden></div>
+
+    <ul class="list" id="daily"></ul>
+
+    <div class="ice" id="ice">
+      <div class="ice-top">
+        <div>
+          <div class="t">🧊 Compressas de gelo sobre a ferida <span id="iceCount" class="tag">0/4</span></div>
+          <div class="d">De 4 a 6 vezes ao dia, por 20 minutos, com 40 minutos de intervalo mínimo entre as sessões.</div>
+        </div>
+      </div>
+      <div class="drops" id="drops" aria-label="Sessões de gelo de hoje"></div>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap" id="iceTimerRow">
+        <button class="btn" id="iceBtn">Começar compressa</button>
+        <div>
+          <div class="timer" id="iceTimer" hidden>20:00</div>
+          <div class="timer-msg" id="iceMsg">Toque para iniciar o cronômetro de 20 min.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="serif" style="margin:18px 0 0;font-size:16px">Últimos 7 dias</h3>
+    <div class="d">Toque em um dia para ver ou corrigir o que foi feito.</div>
+    <div class="week" id="week"></div>
+  </section>
+
+  <!-- Preparativos -->
+  <section class="card" aria-labelledby="h-setup">
+    <h2 id="h-setup">Preparativos</h2>
+    <p class="sub">Itens da orientação para resolver uma vez só. <span id="setupCount"></span></p>
+    <ul class="list" id="setup"></ul>
+  </section>
+
+  <!-- Regras -->
+  <section class="card" aria-labelledby="h-rules">
+    <h2 id="h-rules">Orientações do médico</h2>
+    <p class="sub">Os prazos da folha de pós-operatório, contados a partir da data da cirurgia.</p>
+    <div class="rules" id="rules"></div>
+  </section>
+
+  <!-- Contato -->
+  <section class="card contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Contatos</h2>
+    <p><b>Dr. Daniel G. Bisterço</b> · Ortopedia · CRM/SP 143733 · TEOT 11855</p>
+    <p>📱 Celular: <a href="tel:+5514997891250">(14) 99789-1250</a></p>
+    <p>📍 Clínica Stauros: Rua Amadeu Sangiovani, 5-57.</p>
+    <div class="alert">⚠️ Em caso de urgências, dúvidas sobre a ferida operatória, favor procurar o <b>PA deste hospital</b>.</div>
+  </section>
+
+  <!-- Salvamento -->
+  <section class="card" aria-labelledby="h-save">
+    <h2 id="h-save">Seu progresso</h2>
+    <p class="sub" id="saveStatus">Tudo o que você marca é salvo automaticamente neste aparelho.</p>
+    <div class="save-row">
+      <button class="btn" id="exportBtn">Baixar cópia de segurança</button>
+      <button class="btn ghost" id="importBtn">Restaurar cópia</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+    <p class="d" style="margin-top:10px">Use a cópia para levar seu progresso para outro celular ou recuperar se o navegador for limpo.</p>
+  </section>
+
+  <footer>
+    Conteúdo da folha “Pós-operatório de reconstrução ligamentar e reparo meniscal” do Dr. Daniel G. Bisterço. Este site só organiza essas orientações e não substitui o seu médico.<br>
+    <button id="reset">Apagar progresso</button>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const KEY = 'primeirosPassos.v1';
+  const DAY = 864e5;
+  const DEFAULTS = () => ({ surgery: '2026-11-23', days: {}, setup: {}, ice: null, savedAt: null });
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const state = Object.assign(DEFAULTS(), load());
+
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2, '0');
+
+  /* ---------- Salvamento ---------- */
+  let storageOk = true;
+  function save() {
+    state.savedAt = Date.now();
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state));
+      storageOk = JSON.parse(localStorage.getItem(KEY)).savedAt === state.savedAt;
+    } catch { storageOk = false; }
+    renderSaveStatus();
+  }
+  function renderSaveStatus() {
+    const el = $('saveStatus');
+    if (!storageOk) {
+      el.className = 'sub err';
+      el.textContent = '⚠️ Este navegador não está deixando salvar (talvez esteja em aba anônima). Abra o site numa aba normal ou baixe uma cópia de segurança.';
+      return;
+    }
+    el.className = 'sub ok';
+    el.textContent = state.savedAt
+      ? `✓ Tudo salvo neste aparelho · última alteração ${new Date(state.savedAt).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}`
+      : '✓ Tudo o que você marca é salvo automaticamente neste aparelho.';
+  }
+  // Pede ao navegador para não apagar os dados salvos
+  try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch {}
+  // Mantém várias abas abertas em sincronia
+  addEventListener('storage', e => { if (e.key === KEY && e.newValue) { try { Object.assign(state, JSON.parse(e.newValue)); renderAll(); } catch {} } });
+
+  $('exportBtn').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `primeiros-passos-${todayKey()}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    toast('Cópia de segurança baixada 💾');
+  });
+  $('importBtn').addEventListener('click', () => $('importFile').click());
+  $('importFile').addEventListener('change', async e => {
+    const f = e.target.files[0]; e.target.value = '';
+    if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      if (!data || typeof data !== 'object' || typeof data.days !== 'object') throw 0;
+      if (!confirm('Restaurar esta cópia? O progresso atual deste aparelho será substituído.')) return;
+      Object.keys(state).forEach(k => delete state[k]);
+      Object.assign(state, DEFAULTS(), data);
+      save(); sel = todayKey(); renderAll(); toast('Progresso restaurado ✅');
+    } catch { toast('Arquivo inválido. Escolha a cópia baixada por este site.'); }
+  });
+
+  /* ---------- Datas ---------- */
+  const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  const parse = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+  const todayKey = () => iso(new Date());
+  const dayNumber = (key = todayKey()) => Math.round((parse(key) - parse(state.surgery)) / DAY);
+  const fmtDate = (d, opts) => d.toLocaleDateString('pt-BR', opts);
+  const addDays = (n) => { const d = parse(state.surgery); d.setDate(d.getDate() + n); return d; };
+  const check = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const plural = (n, s) => `${n} ${s}${n === 1 ? '' : 's'}`;
+  let sel = todayKey(); // dia sendo visto/editado
+
+  /* ---------- Orientações (folha do Dr. Daniel G. Bisterço) ---------- */
+  const GOAL = 60; // "Não agachar por 2 meses"
+  const MILESTONES = [
+    { day: 0,  t: 'Cirurgia', s: 'Reconstrução ligamentar e reparo meniscal.' },
+    { day: 14, t: 'Retorno em 2 semanas', s: 'Agendar retorno em 2 semanas.' },
+    { day: 15, t: 'Fim dos primeiros 15 dias', s: 'Termina o período de flexão limitada a 90° e da meia elástica.' },
+    { day: 21, t: '3 semanas', s: 'Após esse período, apoio de 40% do membro operado, com muletas.' },
+    { day: 60, t: '2 meses', s: 'Termina o período de não agachar.' },
+  ];
+
+  const isSetupDone = id => !!state.setup[id];
+
+  const dailyTasks = (n) => [
+    { id: 'curativo', t: 'Realizar curativo', d: 'Diariamente, com água corrente e sabão neutro. Manter ferimento fechado por curativo.' },
+    { id: 'fisio', t: 'Fisioterapia', d: 'Liberada ativação muscular e isometria.' },
+    { id: 'pe', t: 'Mobilização ativa do pé e tornozelo', d: 'Realizar mobilização ativa do pé e tornozelo.' },
+    { id: 'elevado', t: 'Membro operado elevado', d: 'Manter o membro operado elevado durante todo o dia.' },
+    n < 15 && { id: 'meia', t: 'Meia elástica compressiva 3/4', d: 'Média compressão, durante o dia (pode dormir sem a meia), para evitar edema do membro.', tag: 'primeiros 15 dias' },
+    n < 21
+      ? { id: 'muletas', t: 'Não apoiar o membro operado', d: 'Usar muletas (canadense ou axilar).', tag: '3 semanas' }
+      : { id: 'muletas', t: 'Apoio de 40% do membro operado', d: 'Usar muletas (canadense ou axilar).' },
+    n < 15 && { id: 'flexao', t: 'Limitar flexão do joelho a 90 graus', d: 'Nos primeiros 15 dias.', tag: 'primeiros 15 dias' },
+    n < GOAL && { id: 'agachar', t: 'Não agachar', d: 'Por 2 meses.', tag: '2 meses' },
+    !isSetupDone('fuiRetorno') && { id: 'banho', t: 'Tomar banho sentado', d: 'Até o retorno.' },
+  ].filter(Boolean);
+
+  const SETUP = [
+    { id: 'muletas', t: 'Muletas', d: 'Usar muletas (canadense ou axilar).' },
+    { id: 'meia', t: 'Meia elástica compressiva 3/4', d: 'Média compressão, para os primeiros 15 dias.' },
+    { id: 'fisio', t: 'Iniciar fisioterapia', d: 'Iniciar imediatamente.' },
+    { id: 'agendar', t: 'Agendar retorno', d: 'Em 2 semanas.' },
+    { id: 'fuiRetorno', t: 'Retorno realizado', d: 'Depois do retorno, o banho sentado sai da lista do dia.' },
+  ];
+
+  const RULES = (n) => [
+    n < 21
+      ? { ic: '🦵', t: 'Não apoiar membro operado', s: `Por 3 semanas. Faltam ${plural(21-n, 'dia')}.`, on: true }
+      : { ic: '🦵', t: 'Apoio de 40% do membro operado', s: 'Após 3 semanas. Usar muletas (canadense ou axilar).', on: true },
+    { ic: '📐', t: 'Limitar flexão do joelho a 90 graus', s: n < 15 ? `Nos primeiros 15 dias. Faltam ${plural(15-n, 'dia')}.` : 'Primeiros 15 dias concluídos ✓', on: n < 15 },
+    { ic: '🚫', t: 'Não agachar', s: n < GOAL ? `Por 2 meses. Faltam ${plural(GOAL-n, 'dia')}.` : '2 meses concluídos ✓', on: n < GOAL },
+    { ic: '🧦', t: 'Meia elástica compressiva 3/4', s: n < 15 ? 'Durante o dia, nos primeiros 15 dias, para evitar edema do membro.' : 'Primeiros 15 dias concluídos ✓', on: n < 15 },
+    { ic: '🚿', t: 'Tomar banho sentado', s: isSetupDone('fuiRetorno') ? 'Retorno realizado ✓' : 'Até o retorno.', on: !isSetupDone('fuiRetorno') },
+    { ic: '💜', t: 'Hematomas', s: 'É comum surgimento de hematomas nos dias seguintes à cirurgia.', on: true },
+  ];
+
+  const MOTTOS = [
+    'Cada passo marcado aqui é uma vitória.',
+    'Devagar também é avançar.',
+    'Hoje você está mais perto do que ontem.',
+    'Disciplina hoje, liberdade amanhã.',
+    'Pequenas vitórias constroem a grande.',
+  ];
+
+  /* ---------- Estado do dia ---------- */
+  const dayState = (key) => (state.days[key] ||= { done: {}, ice: 0 });
+  const dayScore = (key) => {
+    const ds = state.days[key]; if (!ds) return null;
+    const tasks = dailyTasks(dayNumber(key));
+    const total = tasks.length + 1;
+    const done = tasks.filter(t => ds.done[t.id]).length + (ds.ice >= 4 ? 1 : 0);
+    return { done, total };
+  };
+
+  /* ---------- Render ---------- */
+  function renderHero() {
+    const n = dayNumber();
+    $('dayNum').textContent = Math.max(n, 0);
+    $('dayOf').textContent = n < 0 ? 'a cirurgia ainda não aconteceu' : n === 0 ? '· dia da cirurgia' : 'da recuperação';
+    $('motto').textContent = 'Pós-operatório de reconstrução ligamentar e reparo meniscal. ' + MOTTOS[Math.abs(n) % MOTTOS.length];
+    $('surgery').value = state.surgery;
+  }
+
+  function renderJourney() {
+    const n = Math.max(0, dayNumber());
+    const p = Math.min(1, n / GOAL);
+    $('trackFill').style.width = (p * 100) + '%';
+    $('runner').style.left = (p * 100) + '%';
+    $('runner').textContent = p >= 1 ? '🏆' : '🏃';
+    $('journeyPct').textContent = Math.round(p * 100) + '%';
+    $('journeySub').textContent = n >= GOAL ? 'Os 2 meses de orientações foram concluídos. Que orgulho!' : `Faltam ${plural(GOAL - n, 'dia')} para completar os 2 meses`;
+    const track = $('track');
+    track.querySelectorAll('.flag').forEach(f => f.remove());
+    let nextMarked = false;
+    $('milestones').innerHTML = MILESTONES.map(m => {
+      const done = n >= m.day;
+      let cls = done ? 'done' : '';
+      if (!done && !nextMarked) { cls = 'next'; nextMarked = true; }
+      const flag = document.createElement('span');
+      flag.className = 'flag' + (done ? ' done' : '');
+      flag.style.left = (m.day / GOAL * 100) + '%';
+      track.appendChild(flag);
+      const when = fmtDate(addDays(m.day), { day: '2-digit', month: 'short' });
+      const left = done ? '✓ ' + when : (cls === 'next' ? `em ${m.day - n}d · ${when}` : when);
+      return `<li class="${cls}"><div class="m-day">Dia ${m.day}</div><div class="m-txt">${done ? '🏅 ' : ''}${m.t}<small>${m.s} · ${left}</small></div></li>`;
+    }).join('');
+  }
+
+  function itemHTML(t, on) {
+    return `<li><button class="item" data-id="${t.id}" aria-pressed="${!!on}">
+      <span class="box">${check}</span>
+      <span><span class="t">${t.t}</span>${t.tag ? `<span class="tag">${t.tag}</span>` : ''}<div class="d">${t.d}</div></span>
+    </button></li>`;
+  }
+
+  function renderToday() {
+    const isToday = sel === todayKey();
+    const n = dayNumber(sel);
+    const ds = dayState(sel);
+    const tasks = dailyTasks(n);
+    $('h-today').textContent = isToday ? 'Missões de hoje' : 'Missões do dia';
+    $('todayDate').textContent = fmtDate(parse(sel), { weekday: 'long', day: 'numeric', month: 'long' }) + (n >= 0 ? ` · dia ${n}` : '');
+    $('backToday').hidden = isToday;
+    $('pastNote').hidden = isToday;
+    $('pastNote').textContent = 'Você está vendo um dia anterior. As alterações também são salvas.';
+    $('daily').innerHTML = tasks.map(t => itemHTML(t, ds.done[t.id])).join('');
+    renderIce();
+    renderRing();
+    renderWeek();
+  }
+
+  function renderRing() {
+    const { done, total } = dayScore(sel) || { done: 0, total: dailyTasks(dayNumber(sel)).length + 1 };
+    const C = 226.2;
+    $('ringFg').style.strokeDashoffset = C * (1 - done / total);
+    $('ringLbl').textContent = `${done}/${total}`;
+    $('streak').innerHTML = streakText();
+  }
+
+  function streakText() {
+    let s = 0;
+    const d = new Date();
+    const sc0 = dayScore(iso(d));
+    if (!(sc0 && sc0.done === sc0.total)) d.setDate(d.getDate() - 1);
+    for (;;) {
+      const sc = dayScore(iso(d));
+      if (!sc || sc.done < sc.total) break;
+      s++; d.setDate(d.getDate() - 1);
+    }
+    const daysAll = Object.keys(state.days).filter(k => { const sc = dayScore(k); return sc && sc.done === sc.total; }).length;
+    if (s === 0) return 'Complete todas as missões para começar sua sequência 🔥';
+    return `🔥 <b>${plural(s, 'dia')}</b> seguido${s>1?'s':''} de missão completa · ${daysAll} no total`;
+  }
+
+  function renderWeek() {
+    const out = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const k = iso(d);
+      const sc = dayScore(k);
+      const cls = sc ? (sc.done === sc.total ? 'full' : sc.done > 0 ? 'part' : '') : '';
+      const label = fmtDate(d, { weekday: 'short' }).replace('.', '');
+      out.push(`<button class="wd" data-k="${k}" aria-label="${fmtDate(d, { day: 'numeric', month: 'long' })}: ${sc ? sc.done+' de '+sc.total : 'sem registro'}">${label}<div class="dot ${cls} ${i===0?'today':''} ${k===sel?'sel':''}">${cls==='full'?'★':''}</div></button>`);
+    }
+    $('week').innerHTML = out.join('');
+  }
+
+  function renderSetup() {
+    $('setup').innerHTML = SETUP.map(t => itemHTML(t, state.setup[t.id])).join('');
+    const c = SETUP.filter(t => state.setup[t.id]).length;
+    $('setupCount').textContent = `${c} de ${SETUP.length} feitos.`;
+  }
+
+  function renderRules() {
+    const n = Math.max(0, dayNumber());
+    $('rules').innerHTML = RULES(n).map(r => `<div class="rule ${r.on ? '' : 'off'}"><div class="ic">${r.ic}</div><div><b>${r.t}</b><span>${r.s}</span></div></div>`).join('');
+  }
+
+  /* ---------- Gelo ---------- */
+  const ICE_ON = 20 * 60e3, ICE_REST = 40 * 60e3;
+  let tick = null;
+  function renderIce() {
+    const ds = dayState(sel);
+    $('iceCount').textContent = `${ds.ice}/4${ds.ice >= 4 ? ' ✓' : ''}`;
+    $('drops').innerHTML = Array.from({ length: 6 }, (_, i) =>
+      `<button class="drop ${i < ds.ice ? 'on' : ''}" data-i="${i}" aria-label="Sessão ${i+1}${i<ds.ice?' feita':''}">${i < ds.ice ? '🧊' : i < 4 ? '' : '+'}</button>`).join('');
+    $('iceTimerRow').hidden = sel !== todayKey();
+    updateTimer();
+  }
+  function updateTimer() {
+    const btn = $('iceBtn'), tm = $('iceTimer'), msg = $('iceMsg');
+    const ice = state.ice;
+    const now = Date.now();
+    clearTimeout(tick);
+    if (ice && now < ice.start + ICE_ON) {
+      const left = ice.start + ICE_ON - now;
+      tm.hidden = false; tm.textContent = mmss(left);
+      msg.textContent = 'Compressa em andamento (20 minutos).';
+      btn.textContent = 'Terminar agora'; btn.disabled = false; btn.dataset.mode = 'stop';
+      tick = setTimeout(updateTimer, 1000);
+    } else if (ice && !ice.counted) {
+      finishIce(ice.start + ICE_ON);
+    } else if (ice && now < ice.end + ICE_REST) {
+      const left = ice.end + ICE_REST - now;
+      tm.hidden = false; tm.textContent = mmss(left);
+      const at = new Date(ice.end + ICE_REST).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      msg.textContent = `Intervalo mínimo de 40 minutos. Próxima compressa às ${at}.`;
+      btn.textContent = 'Começar compressa'; btn.disabled = true; btn.dataset.mode = 'start';
+      tick = setTimeout(updateTimer, 1000);
+    } else {
+      tm.hidden = true;
+      const done = dayState(todayKey()).ice;
+      msg.textContent = done >= 6 ? '6 compressas hoje: máximo do dia concluído!' : 'Toque para iniciar o cronômetro de 20 minutos.';
+      btn.textContent = 'Começar compressa'; btn.disabled = done >= 6; btn.dataset.mode = 'start';
+    }
+  }
+  function finishIce(endTs) {
+    const ice = state.ice;
+    ice.counted = true; ice.end = Math.min(endTs, Date.now());
+    const ds = dayState(ice.day);
+    ds.ice = Math.min(6, ds.ice + 1);
+    save();
+    if (ice.day === sel) { renderIce(); renderRing(); }
+    renderWeek();
+    if (ice.day === todayKey()) celebrateIf(ds.ice === 4 ? 'Meta de gelo do dia batida! 🧊' : 'Compressa concluída 🧊');
+    notify('Compressa de gelo concluída', '20 minutos completos. Próxima após 40 minutos de intervalo.');
+  }
+  const mmss = ms => { const s = Math.ceil(ms / 1000); return `${pad(Math.floor(s/60))}:${pad(s%60)}`; };
+  function notify(title, body) {
+    try { if ('Notification' in window && Notification.permission === 'granted') new Notification(title, { body }); } catch {}
+    try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch {}
+  }
+
+  $('iceBtn').addEventListener('click', () => {
+    if ($('iceBtn').dataset.mode === 'stop') { finishIce(Date.now()); return; }
+    try { if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission(); } catch {}
+    state.ice = { start: Date.now(), day: todayKey(), counted: false };
+    save(); updateTimer();
+  });
+  $('drops').addEventListener('click', e => {
+    const b = e.target.closest('.drop'); if (!b) return;
+    const ds = dayState(sel); const i = +b.dataset.i;
+    ds.ice = i < ds.ice ? i : i + 1;
+    save(); renderIce(); renderRing(); renderWeek();
+    if (ds.ice === 4) celebrateIf('Meta de gelo do dia batida! 🧊');
+  });
+
+  /* ---------- Interações ---------- */
+  const CHEERS = ['Mandou bem! ✨', 'Mais um passo! 💪', 'Isso aí! 🙌', 'Vitória marcada ✅', 'Seguindo firme! 🚀'];
+  $('daily').addEventListener('click', e => {
+    const b = e.target.closest('.item'); if (!b) return;
+    const ds = dayState(sel); const id = b.dataset.id;
+    ds.done[id] = !ds.done[id];
+    b.setAttribute('aria-pressed', ds.done[id]);
+    save(); renderRing(); renderWeek();
+    if (ds.done[id]) celebrateIf(CHEERS[Math.floor(Math.random() * CHEERS.length)]);
+  });
+  $('week').addEventListener('click', e => {
+    const b = e.target.closest('.wd'); if (!b) return;
+    sel = b.dataset.k; renderToday();
+  });
+  $('backToday').addEventListener('click', () => { sel = todayKey(); renderToday(); });
+  $('setup').addEventListener('click', e => {
+    const b = e.target.closest('.item'); if (!b) return;
+    const id = b.dataset.id;
+    state.setup[id] = !state.setup[id];
+    save(); renderSetup();
+    if (id === 'fuiRetorno') { renderToday(); renderRules(); }
+    if (state.setup[id]) {
+      if (SETUP.every(t => state.setup[t.id])) { toast('Todos os itens concluídos! 🏆'); confetti(); }
+      else toast(id === 'fuiRetorno' ? 'Retorno feito! Duas semanas vencidas 🏅' : 'Item concluído ✅');
+    }
+  });
+  $('surgery').addEventListener('change', e => {
+    if (!e.target.value) return;
+    state.surgery = e.target.value; save(); renderAll();
+  });
+  $('reset').addEventListener('click', () => {
+    if (!confirm('Apagar todo o progresso salvo neste aparelho? Se quiser guardar, baixe uma cópia de segurança antes.')) return;
+    state.days = {}; state.setup = {}; state.ice = null; save(); renderAll();
+  });
+
+  function celebrateIf(msg) {
+    const sc = dayScore(sel);
+    if (sc && sc.done === sc.total) { toast(sel === todayKey() ? 'Missões de hoje completas! Dia vencido 🏆' : 'Dia completo! 🏆'); confetti(); }
+    else toast(msg);
+  }
+
+  let toastT;
+  function toast(msg) {
+    const t = $('toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function confetti() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c = $('confetti'), x = c.getContext('2d');
+    const W = c.width = innerWidth * devicePixelRatio, H = c.height = innerHeight * devicePixelRatio;
+    c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+    const colors = ['#E8B65A', '#1F6B63', '#5CC98A', '#F3C66E', '#8FD3C6', '#C8902E'];
+    const ps = Array.from({ length: 140 }, () => ({
+      x: W / 2, y: H * .35, vx: (Math.random() - .5) * 22 * devicePixelRatio, vy: (-Math.random() * 18 - 6) * devicePixelRatio,
+      r: (4 + Math.random() * 5) * devicePixelRatio, c: colors[Math.floor(Math.random() * colors.length)], a: Math.random() * 6, s: (Math.random() - .5) * .4,
+    }));
+    let f = 0;
+    (function frame() {
+      x.clearRect(0, 0, W, H);
+      ps.forEach(p => { p.vy += .55 * devicePixelRatio; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.a += p.s;
+        x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.fillRect(-p.r, -p.r / 2, p.r * 2, p.r); x.restore(); });
+      if (++f < 150) requestAnimationFrame(frame); else x.clearRect(0, 0, W, H);
+    })();
+  }
+
+
+  /* ---------- App instalável ---------- */
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  let dismissed = false; try { dismissed = sessionStorage.getItem('pp.installClosed') === '1'; } catch {}
+  let deferredPrompt = null;
+  const card = $('installCard');
+  const showInstall = () => { if (!standalone && !dismissed) card.hidden = false; };
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; showInstall(); });
+  if (isIOS && !standalone) {
+    $('installHint').innerHTML = 'No iPhone, toque em <b>Compartilhar</b> <span aria-hidden="true">⬆️</span> e depois em <b>Adicionar à Tela de Início</b>.';
+    $('installBtn').hidden = true;
+    showInstall();
+  }
+  $('installBtn').addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    if (outcome === 'accepted') { card.hidden = true; toast('App instalado! 🎉'); }
+  });
+  $('installClose').addEventListener('click', () => { card.hidden = true; try { sessionStorage.setItem('pp.installClosed', '1'); } catch {} });
+  addEventListener('appinstalled', () => { card.hidden = true; toast('App instalado! 🎉'); confetti(); });
+
+  function renderAll() { renderHero(); renderJourney(); renderToday(); renderSetup(); renderRules(); renderSaveStatus(); }
+  renderAll();
+
+  // Vira o dia automaticamente se o site ficar aberto
+  let lastKey = todayKey();
+  const rollover = () => { if (todayKey() !== lastKey) { if (sel === lastKey) sel = todayKey(); lastKey = todayKey(); renderAll(); } };
+  setInterval(rollover, 60e3);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) rollover(); });
+})();
+</script>
+</body>
+</html>
