@@ -178,6 +178,13 @@
   .contact p { margin: 6px 0; font-size: 14.5px; }
   .alert { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: var(--warn-soft); font-size: 14px; }
 
+  .btn.small { padding: 6px 12px; font-size: 13px; margin-top: 8px; }
+  .past-note { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: var(--gold-soft); font-size: 13.5px; }
+  .save-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  #saveStatus.ok { color: var(--ok); }
+  #saveStatus.err { color: var(--warn); font-weight: 600; }
+  .wd { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; }
+  .wd .dot.sel { outline: 3px solid var(--gold); outline-offset: 2px; }
   footer { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 28px; }
   footer button { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font-size: 12.5px; }
 
@@ -199,7 +206,7 @@
   <div class="wrap">
     <div class="eyebrow">Recuperação do joelho</div>
     <h1>Primeiros Passos</h1>
-    <p id="motto">Reconstrução ligamentar e reparo meniscal. Cada passo marcado aqui é uma vitória.</p>
+    <p id="motto">Pós-operatório de reconstrução ligamentar e reparo meniscal. Cada passo marcado aqui é uma vitória.</p>
     <div class="day-pill"><span>Dia</span><b id="dayNum">0</b><span id="dayOf">da recuperação</span></div>
     <div class="date-row">
       <label for="surgery">Data da cirurgia:</label>
@@ -233,20 +240,22 @@
         <h2 id="h-today">Missões de hoje</h2>
         <div class="sub" id="todayDate" style="margin:0"></div>
         <div class="streak" id="streak"></div>
+        <button class="btn ghost small" id="backToday" hidden>← Voltar para hoje</button>
       </div>
     </div>
+    <div class="past-note" id="pastNote" hidden></div>
 
     <ul class="list" id="daily"></ul>
 
     <div class="ice" id="ice">
       <div class="ice-top">
         <div>
-          <div class="t">🧊 Compressas de gelo <span id="iceCount" class="tag">0/4</span></div>
-          <div class="d">4 a 6 vezes ao dia · 20 min cada · intervalo mínimo de 40 min</div>
+          <div class="t">🧊 Compressas de gelo sobre a ferida <span id="iceCount" class="tag">0/4</span></div>
+          <div class="d">De 4 a 6 vezes ao dia, por 20 minutos, com 40 minutos de intervalo mínimo entre as sessões.</div>
         </div>
       </div>
       <div class="drops" id="drops" aria-label="Sessões de gelo de hoje"></div>
-      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap" id="iceTimerRow">
         <button class="btn" id="iceBtn">Começar compressa</button>
         <div>
           <div class="timer" id="iceTimer" hidden>20:00</div>
@@ -256,35 +265,48 @@
     </div>
 
     <h3 class="serif" style="margin:18px 0 0;font-size:16px">Últimos 7 dias</h3>
+    <div class="d">Toque em um dia para ver ou corrigir o que foi feito.</div>
     <div class="week" id="week"></div>
   </section>
 
   <!-- Preparativos -->
   <section class="card" aria-labelledby="h-setup">
     <h2 id="h-setup">Preparativos</h2>
-    <p class="sub">Coisas para resolver uma vez só. <span id="setupCount"></span></p>
+    <p class="sub">Itens da orientação para resolver uma vez só. <span id="setupCount"></span></p>
     <ul class="list" id="setup"></ul>
   </section>
 
   <!-- Regras -->
   <section class="card" aria-labelledby="h-rules">
-    <h2 id="h-rules">Combinados com o médico</h2>
-    <p class="sub">Os limites que protegem a cirurgia. Eles mudam conforme os dias passam.</p>
+    <h2 id="h-rules">Orientações do médico</h2>
+    <p class="sub">Os prazos da folha de pós-operatório, contados a partir da data da cirurgia.</p>
     <div class="rules" id="rules"></div>
   </section>
 
   <!-- Contato -->
   <section class="card contact" aria-labelledby="h-contact">
     <h2 id="h-contact">Contatos</h2>
-    <p><b>Dr. Daniel G. Bisterço</b> · Ortopedia</p>
-    <p>📱 <a href="tel:+5514997891250">(14) 99789-1250</a></p>
-    <p>📍 Clínica Stauros: Rua Amadeu Sangiovani, 5-57</p>
-    <div class="alert">⚠️ Urgências ou dúvidas sobre a ferida operatória: procure o <b>Pronto Atendimento (PA) do hospital</b>.</div>
+    <p><b>Dr. Daniel G. Bisterço</b> · Ortopedia · CRM/SP 143733 · TEOT 11855</p>
+    <p>📱 Celular: <a href="tel:+5514997891250">(14) 99789-1250</a></p>
+    <p>📍 Clínica Stauros: Rua Amadeu Sangiovani, 5-57.</p>
+    <div class="alert">⚠️ Em caso de urgências, dúvidas sobre a ferida operatória, favor procurar o <b>PA deste hospital</b>.</div>
+  </section>
+
+  <!-- Salvamento -->
+  <section class="card" aria-labelledby="h-save">
+    <h2 id="h-save">Seu progresso</h2>
+    <p class="sub" id="saveStatus">Tudo o que você marca é salvo automaticamente neste aparelho.</p>
+    <div class="save-row">
+      <button class="btn" id="exportBtn">Baixar cópia de segurança</button>
+      <button class="btn ghost" id="importBtn">Restaurar cópia</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+    <p class="d" style="margin-top:10px">Use a cópia para levar seu progresso para outro celular ou recuperar se o navegador for limpo.</p>
   </section>
 
   <footer>
-    Baseado nas orientações pós-operatórias do Dr. Daniel G. Bisterço. Este site só organiza essas orientações e não substitui o seu médico.<br>
-    Seu progresso fica salvo neste aparelho. · <button id="reset">Apagar progresso</button>
+    Conteúdo da folha “Pós-operatório de reconstrução ligamentar e reparo meniscal” do Dr. Daniel G. Bisterço. Este site só organiza essas orientações e não substitui o seu médico.<br>
+    <button id="reset">Apagar progresso</button>
   </footer>
 </main>
 
@@ -294,12 +316,64 @@
 (() => {
   const KEY = 'primeirosPassos.v1';
   const DAY = 864e5;
+  const DEFAULTS = () => ({ surgery: '2026-11-23', days: {}, setup: {}, ice: null, savedAt: null });
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
-  const state = Object.assign({ surgery: '2026-11-23', days: {}, setup: {}, ice: null }, load());
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
+  const state = Object.assign(DEFAULTS(), load());
 
   const $ = id => document.getElementById(id);
   const pad = n => String(n).padStart(2, '0');
+
+  /* ---------- Salvamento ---------- */
+  let storageOk = true;
+  function save() {
+    state.savedAt = Date.now();
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state));
+      storageOk = JSON.parse(localStorage.getItem(KEY)).savedAt === state.savedAt;
+    } catch { storageOk = false; }
+    renderSaveStatus();
+  }
+  function renderSaveStatus() {
+    const el = $('saveStatus');
+    if (!storageOk) {
+      el.className = 'sub err';
+      el.textContent = '⚠️ Este navegador não está deixando salvar (talvez esteja em aba anônima). Abra o site numa aba normal ou baixe uma cópia de segurança.';
+      return;
+    }
+    el.className = 'sub ok';
+    el.textContent = state.savedAt
+      ? `✓ Tudo salvo neste aparelho · última alteração ${new Date(state.savedAt).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}`
+      : '✓ Tudo o que você marca é salvo automaticamente neste aparelho.';
+  }
+  // Pede ao navegador para não apagar os dados salvos
+  try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch {}
+  // Mantém várias abas abertas em sincronia
+  addEventListener('storage', e => { if (e.key === KEY && e.newValue) { try { Object.assign(state, JSON.parse(e.newValue)); renderAll(); } catch {} } });
+
+  $('exportBtn').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `primeiros-passos-${todayKey()}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    toast('Cópia de segurança baixada 💾');
+  });
+  $('importBtn').addEventListener('click', () => $('importFile').click());
+  $('importFile').addEventListener('change', async e => {
+    const f = e.target.files[0]; e.target.value = '';
+    if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      if (!data || typeof data !== 'object' || typeof data.days !== 'object') throw 0;
+      if (!confirm('Restaurar esta cópia? O progresso atual deste aparelho será substituído.')) return;
+      Object.keys(state).forEach(k => delete state[k]);
+      Object.assign(state, DEFAULTS(), data);
+      save(); sel = todayKey(); renderAll(); toast('Progresso restaurado ✅');
+    } catch { toast('Arquivo inválido. Escolha a cópia baixada por este site.'); }
+  });
+
+  /* ---------- Datas ---------- */
   const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
   const parse = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
   const todayKey = () => iso(new Date());
@@ -307,48 +381,52 @@
   const fmtDate = (d, opts) => d.toLocaleDateString('pt-BR', opts);
   const addDays = (n) => { const d = parse(state.surgery); d.setDate(d.getDate() + n); return d; };
   const check = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const plural = (n, s) => `${n} ${s}${n === 1 ? '' : 's'}`;
+  let sel = todayKey(); // dia sendo visto/editado
 
-  /* ---------- Dados das orientações ---------- */
+  /* ---------- Orientações (folha do Dr. Daniel G. Bisterço) ---------- */
+  const GOAL = 60; // "Não agachar por 2 meses"
   const MILESTONES = [
-    { day: 0,  t: 'Cirurgia feita', s: 'O primeiro passo já foi dado.' },
-    { day: 14, t: 'Retorno com o médico', s: 'Consulta de 2 semanas.' },
-    { day: 15, t: 'Fim da meia elástica e do limite de 90°', s: 'Siga o que o médico e a fisio orientarem.' },
-    { day: 21, t: 'Começa o apoio de 40%', s: 'Ainda com muletas.' },
-    { day: 60, t: 'Liberado para agachar', s: 'Fim das restrições de 2 meses.' },
+    { day: 0,  t: 'Cirurgia', s: 'Reconstrução ligamentar e reparo meniscal.' },
+    { day: 14, t: 'Retorno em 2 semanas', s: 'Agendar retorno em 2 semanas.' },
+    { day: 15, t: 'Fim dos primeiros 15 dias', s: 'Termina o período de flexão limitada a 90° e da meia elástica.' },
+    { day: 21, t: '3 semanas', s: 'Após esse período, apoio de 40% do membro operado, com muletas.' },
+    { day: 60, t: '2 meses', s: 'Termina o período de não agachar.' },
   ];
-  const GOAL = 60;
 
   const isSetupDone = id => !!state.setup[id];
 
   const dailyTasks = (n) => [
-    { id: 'curativo', t: 'Curativo do dia', d: 'Lavar com água corrente e sabão neutro. Manter a ferida fechada com curativo.' },
-    { id: 'fisio', t: 'Exercícios da fisioterapia', d: 'Ativação muscular e isometria estão liberadas.' },
-    { id: 'pe', t: 'Mobilizar pé e tornozelo', d: 'Movimentos ativos ao longo do dia.' },
-    { id: 'elevado', t: 'Perna elevada durante o dia', d: 'Mantenha o membro operado elevado.' },
-    n < 15 && { id: 'meia', t: 'Meia elástica 3/4', d: 'Média compressão durante o dia. Pode dormir sem ela.', tag: 'até dia 14' },
+    { id: 'curativo', t: 'Realizar curativo', d: 'Diariamente, com água corrente e sabão neutro. Manter ferimento fechado por curativo.' },
+    { id: 'fisio', t: 'Fisioterapia', d: 'Liberada ativação muscular e isometria.' },
+    { id: 'pe', t: 'Mobilização ativa do pé e tornozelo', d: 'Realizar mobilização ativa do pé e tornozelo.' },
+    { id: 'elevado', t: 'Membro operado elevado', d: 'Manter o membro operado elevado durante todo o dia.' },
+    n < 15 && { id: 'meia', t: 'Meia elástica compressiva 3/4', d: 'Média compressão, durante o dia (pode dormir sem a meia), para evitar edema do membro.', tag: 'primeiros 15 dias' },
     n < 21
-      ? { id: 'muletas', t: 'Sem apoiar a perna operada', d: 'Só com muletas (canadense ou axilar).', tag: 'até dia 20' }
-      : { id: 'muletas', t: 'Apoio de 40% com muletas', d: 'Apoio parcial da perna operada, sempre com muletas.' },
-    n < 15 && { id: 'flexao', t: 'Flexão do joelho até 90°', d: 'Não passar de 90° nos primeiros 15 dias.', tag: 'até dia 14' },
-    !isSetupDone('fuiRetorno') && { id: 'banho', t: 'Banho sentado', d: 'Até a consulta de retorno.' },
+      ? { id: 'muletas', t: 'Não apoiar o membro operado', d: 'Usar muletas (canadense ou axilar).', tag: '3 semanas' }
+      : { id: 'muletas', t: 'Apoio de 40% do membro operado', d: 'Usar muletas (canadense ou axilar).' },
+    n < 15 && { id: 'flexao', t: 'Limitar flexão do joelho a 90 graus', d: 'Nos primeiros 15 dias.', tag: 'primeiros 15 dias' },
+    n < GOAL && { id: 'agachar', t: 'Não agachar', d: 'Por 2 meses.', tag: '2 meses' },
+    !isSetupDone('fuiRetorno') && { id: 'banho', t: 'Tomar banho sentado', d: 'Até o retorno.' },
   ].filter(Boolean);
 
   const SETUP = [
-    { id: 'muletas', t: 'Pegar as muletas', d: 'Canadense ou axilar.' },
-    { id: 'meia', t: 'Conseguir a meia elástica', d: 'Compressiva 3/4, média compressão.' },
-    { id: 'gelo', t: 'Deixar bolsas de gelo prontas', d: 'Para 4 a 6 compressas por dia.' },
-    { id: 'fisio', t: 'Começar a fisioterapia', d: 'Iniciar imediatamente.' },
-    { id: 'agendar', t: 'Agendar o retorno', d: 'Em 2 semanas, com o Dr. Daniel.' },
-    { id: 'contato', t: 'Salvar o contato do médico', d: '(14) 99789-1250' },
-    { id: 'fuiRetorno', t: 'Ir à consulta de retorno', d: 'Vitória das 2 semanas!' },
+    { id: 'muletas', t: 'Muletas', d: 'Usar muletas (canadense ou axilar).' },
+    { id: 'meia', t: 'Meia elástica compressiva 3/4', d: 'Média compressão, para os primeiros 15 dias.' },
+    { id: 'fisio', t: 'Iniciar fisioterapia', d: 'Iniciar imediatamente.' },
+    { id: 'agendar', t: 'Agendar retorno', d: 'Em 2 semanas.' },
+    { id: 'fuiRetorno', t: 'Retorno realizado', d: 'Depois do retorno, o banho sentado sai da lista do dia.' },
   ];
 
   const RULES = (n) => [
-    { ic: '🦵', t: n < 21 ? 'Não apoiar a perna operada' : 'Apoio de 40% liberado', s: n < 21 ? `Por 3 semanas. Faltam ${21-n} dia${21-n===1?'':'s'}.` : 'Sempre com muletas.', on: true },
-    { ic: '📐', t: 'Flexão do joelho até 90°', s: n < 15 ? `Nos primeiros 15 dias. Faltam ${15-n} dia${15-n===1?'':'s'}.` : 'Período de 15 dias concluído ✓', on: n < 15 },
-    { ic: '🚫', t: 'Não agachar', s: n < GOAL ? `Por 2 meses. Faltam ${GOAL-n} dia${GOAL-n===1?'':'s'}.` : 'Período de 2 meses concluído ✓', on: n < GOAL },
-    { ic: '🧦', t: 'Meia elástica durante o dia', s: n < 15 ? 'Nos primeiros 15 dias, para evitar inchaço.' : 'Período de 15 dias concluído ✓', on: n < 15 },
-    { ic: '💜', t: 'Hematomas são comuns', s: 'É normal aparecerem nos dias seguintes à cirurgia.', on: true },
+    n < 21
+      ? { ic: '🦵', t: 'Não apoiar membro operado', s: `Por 3 semanas. Faltam ${plural(21-n, 'dia')}.`, on: true }
+      : { ic: '🦵', t: 'Apoio de 40% do membro operado', s: 'Após 3 semanas. Usar muletas (canadense ou axilar).', on: true },
+    { ic: '📐', t: 'Limitar flexão do joelho a 90 graus', s: n < 15 ? `Nos primeiros 15 dias. Faltam ${plural(15-n, 'dia')}.` : 'Primeiros 15 dias concluídos ✓', on: n < 15 },
+    { ic: '🚫', t: 'Não agachar', s: n < GOAL ? `Por 2 meses. Faltam ${plural(GOAL-n, 'dia')}.` : '2 meses concluídos ✓', on: n < GOAL },
+    { ic: '🧦', t: 'Meia elástica compressiva 3/4', s: n < 15 ? 'Durante o dia, nos primeiros 15 dias, para evitar edema do membro.' : 'Primeiros 15 dias concluídos ✓', on: n < 15 },
+    { ic: '🚿', t: 'Tomar banho sentado', s: isSetupDone('fuiRetorno') ? 'Retorno realizado ✓' : 'Até o retorno.', on: !isSetupDone('fuiRetorno') },
+    { ic: '💜', t: 'Hematomas', s: 'É comum surgimento de hematomas nos dias seguintes à cirurgia.', on: true },
   ];
 
   const MOTTOS = [
@@ -356,12 +434,11 @@
     'Devagar também é avançar.',
     'Hoje você está mais perto do que ontem.',
     'Disciplina hoje, liberdade amanhã.',
-    'O joelho cura, você conduz.',
     'Pequenas vitórias constroem a grande.',
   ];
 
   /* ---------- Estado do dia ---------- */
-  const dayState = (key = todayKey()) => (state.days[key] ||= { done: {}, ice: 0 });
+  const dayState = (key) => (state.days[key] ||= { done: {}, ice: 0 });
   const dayScore = (key) => {
     const ds = state.days[key]; if (!ds) return null;
     const tasks = dailyTasks(dayNumber(key));
@@ -375,7 +452,7 @@
     const n = dayNumber();
     $('dayNum').textContent = Math.max(n, 0);
     $('dayOf').textContent = n < 0 ? 'a cirurgia ainda não aconteceu' : n === 0 ? '· dia da cirurgia' : 'da recuperação';
-    $('motto').textContent = 'Reconstrução ligamentar e reparo meniscal. ' + MOTTOS[Math.abs(n) % MOTTOS.length];
+    $('motto').textContent = 'Pós-operatório de reconstrução ligamentar e reparo meniscal. ' + MOTTOS[Math.abs(n) % MOTTOS.length];
     $('surgery').value = state.surgery;
   }
 
@@ -386,7 +463,7 @@
     $('runner').style.left = (p * 100) + '%';
     $('runner').textContent = p >= 1 ? '🏆' : '🏃';
     $('journeyPct').textContent = Math.round(p * 100) + '%';
-    $('journeySub').textContent = n >= GOAL ? 'Jornada de 2 meses concluída. Que orgulho!' : `Faltam ${GOAL - n} dias para a liberação de agachar`;
+    $('journeySub').textContent = n >= GOAL ? 'Os 2 meses de orientações foram concluídos. Que orgulho!' : `Faltam ${plural(GOAL - n, 'dia')} para completar os 2 meses`;
     const track = $('track');
     track.querySelectorAll('.flag').forEach(f => f.remove());
     let nextMarked = false;
@@ -399,7 +476,7 @@
       flag.style.left = (m.day / GOAL * 100) + '%';
       track.appendChild(flag);
       const when = fmtDate(addDays(m.day), { day: '2-digit', month: 'short' });
-      const left = done ? '✓ ' + when : (cls === 'next' ? `em ${m.day - n}d` : when);
+      const left = done ? '✓ ' + when : (cls === 'next' ? `em ${m.day - n}d · ${when}` : when);
       return `<li class="${cls}"><div class="m-day">Dia ${m.day}</div><div class="m-txt">${done ? '🏅 ' : ''}${m.t}<small>${m.s} · ${left}</small></div></li>`;
     }).join('');
   }
@@ -412,10 +489,15 @@
   }
 
   function renderToday() {
-    const n = dayNumber();
-    const ds = dayState();
+    const isToday = sel === todayKey();
+    const n = dayNumber(sel);
+    const ds = dayState(sel);
     const tasks = dailyTasks(n);
-    $('todayDate').textContent = fmtDate(new Date(), { weekday: 'long', day: 'numeric', month: 'long' });
+    $('h-today').textContent = isToday ? 'Missões de hoje' : 'Missões do dia';
+    $('todayDate').textContent = fmtDate(parse(sel), { weekday: 'long', day: 'numeric', month: 'long' }) + (n >= 0 ? ` · dia ${n}` : '');
+    $('backToday').hidden = isToday;
+    $('pastNote').hidden = isToday;
+    $('pastNote').textContent = 'Você está vendo um dia anterior. As alterações também são salvas.';
     $('daily').innerHTML = tasks.map(t => itemHTML(t, ds.done[t.id])).join('');
     renderIce();
     renderRing();
@@ -423,7 +505,7 @@
   }
 
   function renderRing() {
-    const { done, total } = dayScore(todayKey());
+    const { done, total } = dayScore(sel) || { done: 0, total: dailyTasks(dayNumber(sel)).length + 1 };
     const C = 226.2;
     $('ringFg').style.strokeDashoffset = C * (1 - done / total);
     $('ringLbl').textContent = `${done}/${total}`;
@@ -442,7 +524,7 @@
     }
     const daysAll = Object.keys(state.days).filter(k => { const sc = dayScore(k); return sc && sc.done === sc.total; }).length;
     if (s === 0) return 'Complete todas as missões para começar sua sequência 🔥';
-    return `🔥 <b>${s} dia${s>1?'s':''}</b> seguidos de missão completa · ${daysAll} no total`;
+    return `🔥 <b>${plural(s, 'dia')}</b> seguido${s>1?'s':''} de missão completa · ${daysAll} no total`;
   }
 
   function renderWeek() {
@@ -453,7 +535,7 @@
       const sc = dayScore(k);
       const cls = sc ? (sc.done === sc.total ? 'full' : sc.done > 0 ? 'part' : '') : '';
       const label = fmtDate(d, { weekday: 'short' }).replace('.', '');
-      out.push(`<div class="wd">${label}<div class="dot ${cls} ${i===0?'today':''}" title="${sc ? sc.done+'/'+sc.total : 'sem registro'}">${cls==='full'?'★':''}</div></div>`);
+      out.push(`<button class="wd" data-k="${k}" aria-label="${fmtDate(d, { day: 'numeric', month: 'long' })}: ${sc ? sc.done+' de '+sc.total : 'sem registro'}">${label}<div class="dot ${cls} ${i===0?'today':''} ${k===sel?'sel':''}">${cls==='full'?'★':''}</div></button>`);
     }
     $('week').innerHTML = out.join('');
   }
@@ -473,10 +555,11 @@
   const ICE_ON = 20 * 60e3, ICE_REST = 40 * 60e3;
   let tick = null;
   function renderIce() {
-    const ds = dayState();
+    const ds = dayState(sel);
     $('iceCount').textContent = `${ds.ice}/4${ds.ice >= 4 ? ' ✓' : ''}`;
     $('drops').innerHTML = Array.from({ length: 6 }, (_, i) =>
       `<button class="drop ${i < ds.ice ? 'on' : ''}" data-i="${i}" aria-label="Sessão ${i+1}${i<ds.ice?' feita':''}">${i < ds.ice ? '🧊' : i < 4 ? '' : '+'}</button>`).join('');
+    $('iceTimerRow').hidden = sel !== todayKey();
     updateTimer();
   }
   function updateTimer() {
@@ -487,7 +570,7 @@
     if (ice && now < ice.start + ICE_ON) {
       const left = ice.start + ICE_ON - now;
       tm.hidden = false; tm.textContent = mmss(left);
-      msg.textContent = 'Gelo em andamento. Relaxe e mantenha a perna elevada.';
+      msg.textContent = 'Compressa em andamento (20 minutos).';
       btn.textContent = 'Terminar agora'; btn.disabled = false; btn.dataset.mode = 'stop';
       tick = setTimeout(updateTimer, 1000);
     } else if (ice && !ice.counted) {
@@ -496,24 +579,26 @@
       const left = ice.end + ICE_REST - now;
       tm.hidden = false; tm.textContent = mmss(left);
       const at = new Date(ice.end + ICE_REST).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-      msg.textContent = `Intervalo. Próxima compressa liberada às ${at}.`;
+      msg.textContent = `Intervalo mínimo de 40 minutos. Próxima compressa às ${at}.`;
       btn.textContent = 'Começar compressa'; btn.disabled = true; btn.dataset.mode = 'start';
       tick = setTimeout(updateTimer, 1000);
     } else {
       tm.hidden = true;
-      const done = dayState().ice;
-      msg.textContent = done >= 6 ? 'Máximo de 6 sessões hoje concluído. Excelente!' : 'Toque para iniciar o cronômetro de 20 min.';
+      const done = dayState(todayKey()).ice;
+      msg.textContent = done >= 6 ? '6 compressas hoje: máximo do dia concluído!' : 'Toque para iniciar o cronômetro de 20 minutos.';
       btn.textContent = 'Começar compressa'; btn.disabled = done >= 6; btn.dataset.mode = 'start';
     }
   }
   function finishIce(endTs) {
     const ice = state.ice;
     ice.counted = true; ice.end = Math.min(endTs, Date.now());
-    const ds = state.days[ice.day] ||= { done: {}, ice: 0 };
+    const ds = dayState(ice.day);
     ds.ice = Math.min(6, ds.ice + 1);
     save();
-    if (ice.day === todayKey()) { renderIce(); renderRing(); renderWeek(); celebrateIf(ds.ice === 4 ? 'Meta de gelo do dia batida! 🧊' : 'Compressa concluída 🧊'); }
-    notify('Compressa de gelo concluída', 'Hora de tirar o gelo. Próxima em 40 min.');
+    if (ice.day === sel) { renderIce(); renderRing(); }
+    renderWeek();
+    if (ice.day === todayKey()) celebrateIf(ds.ice === 4 ? 'Meta de gelo do dia batida! 🧊' : 'Compressa concluída 🧊');
+    notify('Compressa de gelo concluída', '20 minutos completos. Próxima após 40 minutos de intervalo.');
   }
   const mmss = ms => { const s = Math.ceil(ms / 1000); return `${pad(Math.floor(s/60))}:${pad(s%60)}`; };
   function notify(title, body) {
@@ -529,7 +614,7 @@
   });
   $('drops').addEventListener('click', e => {
     const b = e.target.closest('.drop'); if (!b) return;
-    const ds = dayState(); const i = +b.dataset.i;
+    const ds = dayState(sel); const i = +b.dataset.i;
     ds.ice = i < ds.ice ? i : i + 1;
     save(); renderIce(); renderRing(); renderWeek();
     if (ds.ice === 4) celebrateIf('Meta de gelo do dia batida! 🧊');
@@ -539,21 +624,26 @@
   const CHEERS = ['Mandou bem! ✨', 'Mais um passo! 💪', 'Isso aí! 🙌', 'Vitória marcada ✅', 'Seguindo firme! 🚀'];
   $('daily').addEventListener('click', e => {
     const b = e.target.closest('.item'); if (!b) return;
-    const ds = dayState(); const id = b.dataset.id;
+    const ds = dayState(sel); const id = b.dataset.id;
     ds.done[id] = !ds.done[id];
     b.setAttribute('aria-pressed', ds.done[id]);
     save(); renderRing(); renderWeek();
     if (ds.done[id]) celebrateIf(CHEERS[Math.floor(Math.random() * CHEERS.length)]);
   });
+  $('week').addEventListener('click', e => {
+    const b = e.target.closest('.wd'); if (!b) return;
+    sel = b.dataset.k; renderToday();
+  });
+  $('backToday').addEventListener('click', () => { sel = todayKey(); renderToday(); });
   $('setup').addEventListener('click', e => {
     const b = e.target.closest('.item'); if (!b) return;
     const id = b.dataset.id;
     state.setup[id] = !state.setup[id];
     save(); renderSetup();
-    if (id === 'fuiRetorno') renderToday();
+    if (id === 'fuiRetorno') { renderToday(); renderRules(); }
     if (state.setup[id]) {
-      if (SETUP.every(t => state.setup[t.id])) { toast('Todos os preparativos feitos! 🏆'); confetti(); }
-      else toast(id === 'fuiRetorno' ? 'Retorno feito! Duas semanas vencidas 🏅' : 'Preparativo concluído ✅');
+      if (SETUP.every(t => state.setup[t.id])) { toast('Todos os itens concluídos! 🏆'); confetti(); }
+      else toast(id === 'fuiRetorno' ? 'Retorno feito! Duas semanas vencidas 🏅' : 'Item concluído ✅');
     }
   });
   $('surgery').addEventListener('change', e => {
@@ -561,13 +651,13 @@
     state.surgery = e.target.value; save(); renderAll();
   });
   $('reset').addEventListener('click', () => {
-    if (!confirm('Apagar todo o progresso salvo neste aparelho?')) return;
+    if (!confirm('Apagar todo o progresso salvo neste aparelho? Se quiser guardar, baixe uma cópia de segurança antes.')) return;
     state.days = {}; state.setup = {}; state.ice = null; save(); renderAll();
   });
 
   function celebrateIf(msg) {
-    const { done, total } = dayScore(todayKey());
-    if (done === total) { toast('Missões de hoje completas! Dia vencido 🏆'); confetti(); }
+    const sc = dayScore(sel);
+    if (sc && sc.done === sc.total) { toast(sel === todayKey() ? 'Missões de hoje completas! Dia vencido 🏆' : 'Dia completo! 🏆'); confetti(); }
     else toast(msg);
   }
 
@@ -596,13 +686,14 @@
     })();
   }
 
-  function renderAll() { renderHero(); renderJourney(); renderToday(); renderSetup(); renderRules(); }
+  function renderAll() { renderHero(); renderJourney(); renderToday(); renderSetup(); renderRules(); renderSaveStatus(); }
   renderAll();
 
   // Vira o dia automaticamente se o site ficar aberto
   let lastKey = todayKey();
-  setInterval(() => { if (todayKey() !== lastKey) { lastKey = todayKey(); renderAll(); } }, 60e3);
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) { lastKey = todayKey(); renderAll(); } });
+  const rollover = () => { if (todayKey() !== lastKey) { if (sel === lastKey) sel = todayKey(); lastKey = todayKey(); renderAll(); } };
+  setInterval(rollover, 60e3);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) rollover(); });
 })();
 </script>
 </body>
